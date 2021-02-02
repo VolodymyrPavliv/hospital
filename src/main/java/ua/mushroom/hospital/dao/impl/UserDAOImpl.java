@@ -58,6 +58,27 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public boolean addRoleId(int id, int role_id) {
+        PreparedStatement statement = null;
+
+        try (Connection connection = ConnectionPool.getConnection()) {
+            statement = connection.prepareStatement(SQLConstants.ADD_ROLE_ID);
+            statement.setInt(1, role_id);
+            statement.setInt(2, id);
+
+            statement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            DBUtils.close(statement);
+        }
+
+        return false;
+    }
+
+    @Override
     public Optional<User> findByEmailAndPassword(String email, String password) {
         User user = new User();
         ResultSet resultSet = null;
@@ -94,7 +115,6 @@ public class UserDAOImpl implements UserDAO {
             statement.setString(2, user.getSurname());
             statement.setString(3,user.getEmail());
             statement.setString(4,user.getPassword());
-            statement.setInt(5,user.getRole_id());
 
             statement.execute();
             return true;
@@ -115,5 +135,10 @@ public class UserDAOImpl implements UserDAO {
         user.setRole_id(resultSet.getInt("role_id"));
 
         return user;
+    }
+
+    public static void main(String[] args) {
+        UserDAOImpl userDAO = new UserDAOImpl();
+        System.out.println(userDAO.findByEmailAndPassword("admin@gmail.com","admin"));
     }
 }

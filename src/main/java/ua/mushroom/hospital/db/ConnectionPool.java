@@ -14,6 +14,7 @@ public class ConnectionPool {
         ds.setUrl(rb.getString("url"));
         ds.setUsername(rb.getString("user"));
         ds.setPassword(rb.getString("password"));
+        ds.setDriverClassName(rb.getString("driver"));
         ds.setMinIdle(5);
         ds.setMaxIdle(10);
         ds.setMaxOpenPreparedStatements(100);

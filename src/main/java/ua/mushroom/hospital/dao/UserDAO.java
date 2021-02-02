@@ -10,4 +10,5 @@ public interface UserDAO {
     public Optional<User> findByEmailAndPassword(String email, String password);
     public boolean addUser(User user);
     public Optional<User> findById(int id);
+    public boolean addRoleId(int id, int role_id);
 }
