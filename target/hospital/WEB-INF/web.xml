@@ -59,6 +59,17 @@
         <url-pattern>/doctor</url-pattern>
     </servlet-mapping>
 
+    <!--Description NursePageServlet-->
+    <servlet>
+        <servlet-name>NursePageServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.NursePageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>NursePageServlet</servlet-name>
+        <url-pattern>/nurse</url-pattern>
+    </servlet-mapping>
+
     <!--Description PatientPageServlet-->
     <servlet>
         <servlet-name>PatientPageServlet</servlet-name>

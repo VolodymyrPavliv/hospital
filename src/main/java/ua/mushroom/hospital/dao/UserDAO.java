@@ -11,4 +11,5 @@ public interface UserDAO {
     public boolean addUser(User user);
     public Optional<User> findById(int id);
     public boolean addRoleId(int id, int role_id);
+    public List<User> findAllByRoleId(int roleId);
 }

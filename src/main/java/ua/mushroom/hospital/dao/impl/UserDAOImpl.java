@@ -115,6 +115,7 @@ public class UserDAOImpl implements UserDAO {
             statement.setString(2, user.getSurname());
             statement.setString(3,user.getEmail());
             statement.setString(4,user.getPassword());
+            statement.setDate(5,user.getBirthday());
 
             statement.execute();
             return true;
@@ -122,6 +123,29 @@ public class UserDAOImpl implements UserDAO {
             System.out.println(e.getMessage());
         }
         return false;
+    }
+
+    @Override
+    public List<User> findAllByRoleId(int roleId) {
+        List<User> userList = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try (Connection connection = ConnectionPool.getConnection()){
+             statement = connection.prepareStatement(SQLConstants.FIND_ALL_USERS_BY_ROLE_ID);
+             statement.setInt(1, roleId);
+
+             resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                userList.add(mapUser(resultSet));
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            DBUtils.close(resultSet);
+            DBUtils.close(statement);
+        }
+        return userList;
     }
 
     private User mapUser(ResultSet resultSet) throws SQLException {
@@ -133,12 +157,8 @@ public class UserDAOImpl implements UserDAO {
         user.setEmail(resultSet.getString("email"));
         user.setPassword(resultSet.getString("password"));
         user.setRole_id(resultSet.getInt("role_id"));
+        user.setBirthday(resultSet.getDate("birthday"));
 
         return user;
-    }
-
-    public static void main(String[] args) {
-        UserDAOImpl userDAO = new UserDAOImpl();
-        System.out.println(userDAO.findByEmailAndPassword("admin@gmail.com","admin"));
     }
 }

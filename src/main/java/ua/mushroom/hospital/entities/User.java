@@ -1,6 +1,6 @@
 package ua.mushroom.hospital.entities;
 
-import java.util.List;
+import java.sql.Date;
 
 public class User {
     private int id;
@@ -8,17 +8,10 @@ public class User {
     private String surname;
     private String email;
     private String password;
+    private Date birthday;
     private int role_id;
 
     public User() {}
-
-    public User(String name, String surname, String email, String password, int role_id) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
-        this.role_id = role_id;
-    }
 
     public int getId() {
         return id;
@@ -68,6 +61,14 @@ public class User {
         this.role_id = role_id;
     }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -76,6 +77,7 @@ public class User {
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", birthday=" + birthday +
                 ", role_id=" + role_id +
                 '}';
     }

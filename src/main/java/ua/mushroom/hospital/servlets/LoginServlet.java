@@ -22,9 +22,10 @@ public class LoginServlet extends HttpServlet {
     private final static Map<String, String> PATHS = new HashMap<>();
 
     static {
-        PATHS.put("ADMIN", PathConstants.ADMIN_HOME);
-        PATHS.put("DOCTOR", PathConstants.DOCTOR_HOME);
-        PATHS.put("PATIENT", PathConstants.PATIENT_HOME);
+        PATHS.put("ADMIN", PathConstants.ADMIN_PAGE);
+        PATHS.put("DOCTOR", PathConstants.DOCTOR_PAGE);
+        PATHS.put("NURSE", PathConstants.NURSE_PAGE);
+        PATHS.put("PATIENT", PathConstants.PATIENT_PAGE);
     }
 
     @Override

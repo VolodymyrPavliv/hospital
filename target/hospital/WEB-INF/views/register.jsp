@@ -11,6 +11,9 @@
         <label for="surname">Surname: </label><br>
         <input type="text" id="surname" name="surname"/><br>
 
+        <label for="birthday">Birthday: </label><br>
+        <input type="date" id="birthday" name="birthday"/><br>
+
         <label for="email">Email: </label><br>
         <input type="email" id="email" name="email"/><br>
 
@@ -20,6 +23,7 @@
         <label for="confirm_password">Confirm Password: </label><br>
         <input type="password" id="confirm_password" name="confirm-password"/><br><br>
 
+        
         <input type="submit" value="Create Account"/>
     </form>
 </body>

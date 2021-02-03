@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
 
 public class RegisterServlet extends HttpServlet {
     private UserDAOImpl userDAO = new UserDAOImpl();
@@ -37,6 +38,7 @@ public class RegisterServlet extends HttpServlet {
         newUser.setSurname(req.getParameter("surname"));
         newUser.setEmail(req.getParameter("email"));
         newUser.setPassword(req.getParameter("password"));
+        newUser.setBirthday(Date.valueOf(req.getParameter("birthday")));
 
         return userDAO.addUser(newUser);
     }

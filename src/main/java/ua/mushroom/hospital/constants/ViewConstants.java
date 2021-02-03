@@ -9,4 +9,5 @@ public class ViewConstants {
     public static final String PATIENT_PAGE = "/WEB-INF/views/patient_page.jsp";
     public static final String FORBIDDEN_PAGE = "/WEB-INF/views/forbidden_page.jsp";
     public static final String ABOUT_US = "/WEB-INF/views/about_us.jsp";
+    public static final String NURSE_PAGE = "/WEB-INF/views/nurse_page.jsp";
 }

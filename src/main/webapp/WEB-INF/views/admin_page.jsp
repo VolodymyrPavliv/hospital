@@ -18,14 +18,29 @@
         <input type="submit" value="Register As A Doctor"/>
     </form>
     <form action="/registerUser" method="post">
+        <input type="hidden" name="nurseId" value="${user.getId()}">
+        <input type="submit" value="Register As A Nurse"/>
+    </form>
+    <form action="/registerUser" method="post">
         <input type="hidden" name="patientId" value="${user.getId()}">
         <input type="submit" value="Register As A Patient"/>
     </form>
 </c:forEach>
 -------------------------------------
-<h1>List of registered users</h1>
-<c:forEach items="${registeredUsers}" var="user">
+<h1>List of doctors</h1>
+<c:forEach items="${doctors}" var="user">
+    <p>${user.getName()}</p>
+</c:forEach>
+-------------------------------------
+<h1>List of nurses</h1>
+<c:forEach items="${nurses}" var="user">
+    <p>${user.getName()}</p>
+</c:forEach>
+-------------------------------------
+<h1>List of patients</h1>
+<c:forEach items="${patients}" var="user">
     <p>${user.getName()}</p>
 </c:forEach>
 </body>
 </html>
+

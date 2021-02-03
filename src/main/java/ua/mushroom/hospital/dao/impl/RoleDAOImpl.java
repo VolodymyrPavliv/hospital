@@ -63,9 +63,4 @@ public class RoleDAOImpl implements RoleDAO {
 
         return role;
     }
-
-    public static void main(String[] args) {
-        RoleDAOImpl roleDAO = new RoleDAOImpl();
-        System.out.println(roleDAO.findById(1).getName());
-    }
 }

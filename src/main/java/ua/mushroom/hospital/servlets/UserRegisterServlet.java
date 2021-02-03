@@ -21,12 +21,18 @@ public class UserRegisterServlet extends HttpServlet {
             userDAO.addRoleId(doctorId, new RoleDAOImpl().findByName("DOCTOR").getId());
         }
 
+        if(req.getParameter("nurseId")!=null) {
+            int nurseId = Integer.parseInt(req.getParameter("nurseId"));
+
+            userDAO.addRoleId(nurseId, new RoleDAOImpl().findByName("NURSE").getId());
+        }
+
         if(req.getParameter("patientId") != null) {
             int patientId = Integer.parseInt(req.getParameter("patientId"));
 
             userDAO.addRoleId(patientId, new RoleDAOImpl().findByName("PATIENT").getId());
         }
 
-        resp.sendRedirect(PathConstants.ADMIN_HOME);
+        resp.sendRedirect(PathConstants.ADMIN_PAGE);
     }
 }

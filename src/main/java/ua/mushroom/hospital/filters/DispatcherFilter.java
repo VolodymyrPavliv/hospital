@@ -21,9 +21,10 @@ public class DispatcherFilter implements Filter {
         GUEST.add(PathConstants.LOGIN);
         GUEST.add(PathConstants.REGISTER);
 
-        PROTECTED_URIS.put(PathConstants.DOCTOR_HOME,"DOCTOR");
-        PROTECTED_URIS.put(PathConstants.ADMIN_HOME,"ADMIN");
-        PROTECTED_URIS.put(PathConstants.PATIENT_HOME,"PATIENT");
+        PROTECTED_URIS.put(PathConstants.DOCTOR_PAGE,"DOCTOR");
+        PROTECTED_URIS.put(PathConstants.NURSE_PAGE,"NURSE");
+        PROTECTED_URIS.put(PathConstants.ADMIN_PAGE,"ADMIN");
+        PROTECTED_URIS.put(PathConstants.PATIENT_PAGE,"PATIENT");
     }
 
     @Override
