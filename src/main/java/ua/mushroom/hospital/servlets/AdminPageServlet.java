@@ -21,6 +21,7 @@ public class AdminPageServlet extends HttpServlet {
 
         List<User> unregisteredUsers = userDAO.findAll().stream()
                 .filter(u->u.getRole_id()==0).collect(Collectors.toList());
+
         List<User> doctors = userDAO.findAllByRoleId(roleDAO.findByName("DOCTOR")
                 .getId());
         List<User> nurses = userDAO.findAllByRoleId(roleDAO.findByName("NURSE")

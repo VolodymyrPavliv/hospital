@@ -14,7 +14,8 @@
 <c:forEach items="${unregisteredUsers}" var="user">
     <p>${user.getName()}</p>
     <form action="/registerUser" method="post">
-        <input type="hidden" name="doctorId" value="${user.getId()}">
+        <input type="hidden" name="doctorId" value="${user.getId()}"/>
+        <input type="text" name="category" placeholder="Enter category"/>
         <input type="submit" value="Register As A Doctor"/>
     </form>
     <form action="/registerUser" method="post">
@@ -29,17 +30,29 @@
 -------------------------------------
 <h1>List of doctors</h1>
 <c:forEach items="${doctors}" var="user">
-    <p>${user.getName()}</p>
+    <p>${user.getName()} ${user.getSurname()}</p>
+    <form action="/admin/doctor" method="get">
+        <input type="hidden" name="id" value="${user.getId()}"/>
+        <input type="submit" value="Details"/>
+    </form>
 </c:forEach>
 -------------------------------------
 <h1>List of nurses</h1>
 <c:forEach items="${nurses}" var="user">
-    <p>${user.getName()}</p>
+    <p>${user.getName()} ${user.getSurname()}</p>
+    <form action="/admin/nurse" method="get">
+        <input type="hidden" name="id" value="${user.getId()}"/>
+        <input type="submit" value="Details"/>
+    </form>
 </c:forEach>
 -------------------------------------
 <h1>List of patients</h1>
 <c:forEach items="${patients}" var="user">
-    <p>${user.getName()}</p>
+    <p>${user.getName()} ${user.getSurname()}</p>
+    <form action="/admin/patient" method="get">
+        <input type="hidden" name="id" value="${user.getId()}"/>
+        <input type="submit" value="Details"/>
+    </form>
 </c:forEach>
 </body>
 </html>

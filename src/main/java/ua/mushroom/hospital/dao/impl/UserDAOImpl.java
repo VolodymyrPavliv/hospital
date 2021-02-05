@@ -23,7 +23,7 @@ public class UserDAOImpl implements UserDAO {
              PreparedStatement statement = connection.prepareStatement(SQLConstants.FIND_ALL_USERS);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                userList.add(mapUser(resultSet));
+                userList.add(DBUtils.mapUser(resultSet));
             }
 
         } catch (SQLException e) {
@@ -45,7 +45,7 @@ public class UserDAOImpl implements UserDAO {
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                user = mapUser(resultSet);
+                user = DBUtils.mapUser(resultSet);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -93,7 +93,7 @@ public class UserDAOImpl implements UserDAO {
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                user = mapUser(resultSet);
+                user = DBUtils.mapUser(resultSet);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -136,7 +136,7 @@ public class UserDAOImpl implements UserDAO {
 
              resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                userList.add(mapUser(resultSet));
+                userList.add(DBUtils.mapUser(resultSet));
             }
 
         } catch (SQLException e) {
@@ -146,19 +146,5 @@ public class UserDAOImpl implements UserDAO {
             DBUtils.close(statement);
         }
         return userList;
-    }
-
-    private User mapUser(ResultSet resultSet) throws SQLException {
-        User user = new User();
-
-        user.setId(resultSet.getInt("id"));
-        user.setName(resultSet.getString("name"));
-        user.setSurname(resultSet.getString("surname"));
-        user.setEmail(resultSet.getString("email"));
-        user.setPassword(resultSet.getString("password"));
-        user.setRole_id(resultSet.getInt("role_id"));
-        user.setBirthday(resultSet.getDate("birthday"));
-
-        return user;
     }
 }

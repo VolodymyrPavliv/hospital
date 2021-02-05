@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserDAO {
-    public List<User> findAll();
-    public Optional<User> findByEmailAndPassword(String email, String password);
-    public boolean addUser(User user);
-    public Optional<User> findById(int id);
-    public boolean addRoleId(int id, int role_id);
-    public List<User> findAllByRoleId(int roleId);
+    List<User> findAll();
+    Optional<User> findByEmailAndPassword(String email, String password);
+    boolean addUser(User user);
+    Optional<User> findById(int id);
+    boolean addRoleId(int id, int role_id);
+    List<User> findAllByRoleId(int roleId);
 }
