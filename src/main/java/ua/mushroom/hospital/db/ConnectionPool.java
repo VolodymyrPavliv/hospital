@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ConnectionPool {
-    private static BasicDataSource ds = new BasicDataSource();
+    private static final BasicDataSource ds = new BasicDataSource();
     private static final ResourceBundle rb = ResourceBundle.getBundle("db");
 
     static {

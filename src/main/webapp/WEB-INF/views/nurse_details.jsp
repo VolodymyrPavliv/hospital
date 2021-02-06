@@ -5,9 +5,9 @@
     <title>Nurse Details</title>
 </head>
 <body>
-    <p>${user.getName()} ${user.getSurname()}</p>
-    <p><strong>Birthday: </strong>${user.getBirthday()}</p>
-    <p><strong>Email: </strong>${user.getEmail()}</p>
+    <p>${nurse.getName()} ${nurse.getSurname()}</p>
+    <p><strong>Birthday: </strong>${nurse.getBirthday()}</p>
+    <p><strong>Email: </strong>${nurse.getEmail()}</p>
     <h4>Patients: </h4>
     <c:forEach items="${patients}" var="patient">
         <p><strong>Name: </strong>${patient.getName()} ${patient.getSurname()}</p>

@@ -1,8 +1,8 @@
 package ua.mushroom.hospital.servlets;
 
 import ua.mushroom.hospital.constants.ViewConstants;
-import ua.mushroom.hospital.dao.impl.DoctorDAOImpl;
-import ua.mushroom.hospital.dao.impl.PatientDAOImpl;
+import ua.mushroom.hospital.dao.impl.DoctorInfoDAOImpl;
+import ua.mushroom.hospital.dao.impl.RecordDAOImpl;
 import ua.mushroom.hospital.dao.impl.UserDAOImpl;
 import ua.mushroom.hospital.entities.DoctorInfo;
 import ua.mushroom.hospital.entities.User;
@@ -18,17 +18,17 @@ public class DoctorDetailsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDAOImpl userDAO = new UserDAOImpl();
-        DoctorDAOImpl doctorDAO = new DoctorDAOImpl();
-        PatientDAOImpl patientDAO = new PatientDAOImpl();
+        DoctorInfoDAOImpl doctorDAO = new DoctorInfoDAOImpl();
+        RecordDAOImpl recordDAO = new RecordDAOImpl();
 
         int id = Integer.parseInt(req.getParameter("id"));
 
-        User user = userDAO.findById(id).get();
-        DoctorInfo doctor = doctorDAO.findByUserId(id).get();
-        List<User> patients = patientDAO.findAllUserByDoctorId(doctor.getId());
+        User doctor = userDAO.findById(id).get();
+        DoctorInfo doctorInfo = doctorDAO.findByUserId(id).get();
+        List<User> patients = recordDAO.findPatientsByDoctorId(doctorInfo.getId());
 
-        req.setAttribute("user", user);
-        req.setAttribute("category", doctor.getCategory());
+        req.setAttribute("doctor", doctor);
+        req.setAttribute("category", doctorInfo.getCategory());
         req.setAttribute("patients", patients);
 
         req.getRequestDispatcher(ViewConstants.DOCTOR_DETAILS_VIEW).forward(req, resp);

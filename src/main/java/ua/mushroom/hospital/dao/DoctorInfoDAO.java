@@ -4,8 +4,7 @@ import ua.mushroom.hospital.entities.DoctorInfo;
 
 import java.util.Optional;
 
-public interface DoctorDAO {
+public interface DoctorInfoDAO {
     Optional<DoctorInfo> findByUserId(int userId);
-    boolean addDoctor(int id, String category);
-    Optional<DoctorInfo> findById(int id);
+    boolean addDoctorInfo(int id, String category);
 }

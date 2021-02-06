@@ -4,11 +4,11 @@ import java.sql.Date;
 
 public class Assignment {
     private int id;
+    private String type;
     private String description;
-    private int type_id;
     private int user_id;
     private Date date;
-    private int hospital_card_id;
+    private int record_id;
 
     public int getId() {
         return id;
@@ -18,20 +18,20 @@ public class Assignment {
         this.id = id;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getType_id() {
-        return type_id;
-    }
-
-    public void setType_id(int type_id) {
-        this.type_id = type_id;
     }
 
     public int getUser_id() {
@@ -50,11 +50,11 @@ public class Assignment {
         this.date = date;
     }
 
-    public int getHospital_card_id() {
-        return hospital_card_id;
+    public int getRecord_id() {
+        return record_id;
     }
 
-    public void setHospital_card_id(int hospital_card_id) {
-        this.hospital_card_id = hospital_card_id;
+    public void setRecord_id(int record_id) {
+        this.record_id = record_id;
     }
 }

@@ -5,10 +5,10 @@
     <title>Doctor Details</title>
 </head>
 <body>
-    <p>${user.getName()} ${user.getSurname()}</p>
-    <p><strong>Birthday: </strong>${user.getBirthday()}</p>
+    <p>${doctor.getName()} ${doctor.getSurname()}</p>
+    <p><strong>Birthday: </strong>${doctor.getBirthday()}</p>
     <p><strong>Category: </strong>${category}</p>
-    <p><strong>Email: </strong>${user.getEmail()}</p>
+    <p><strong>Email: </strong>${doctor.getEmail()}</p>
     <h4>Patients: </h4>
     <c:forEach items="${patients}" var="patient">
         <p><strong>Name: </strong>${patient.getName()} ${patient.getSurname()}</p>

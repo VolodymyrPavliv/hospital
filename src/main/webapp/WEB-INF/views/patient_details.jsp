@@ -4,9 +4,10 @@
     <title>Patient Details</title>
 </head>
 <body>
-    <p>${user.getName()} ${user.getSurname()}</p>
-    <p><strong>Birthday: </strong>${user.getBirthday()}</p>
-    <p><strong>Email: </strong>${user.getEmail()}</p>
+    <p>${patient.getName()} ${patient.getSurname()}</p>
+    <p><strong>Birthday: </strong>${patient.getBirthday()}</p>
+    <p><strong>Email: </strong>${patient.getEmail()}</p>
     <p><strong>Doctor: </strong>${doctor.getName()} ${doctor.getSurname()}</p>
+    <p><strong>Nurse: </strong>${nurse.getName()} ${nurse.getSurname()}</p>
 </body>
 </html>

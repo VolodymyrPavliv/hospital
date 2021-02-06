@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.Date;
 
 public class RegisterServlet extends HttpServlet {
-    private UserDAOImpl userDAO = new UserDAOImpl();
+    private final UserDAOImpl userDAO = new UserDAOImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

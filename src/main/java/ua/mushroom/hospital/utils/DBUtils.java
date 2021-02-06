@@ -11,7 +11,7 @@ public class DBUtils {
             try {
                 ac.close();
             } catch (Exception ex) {
-                //Here will be a log
+                System.out.println(ex.getMessage());
             }
         }
     }
