@@ -24,4 +24,5 @@ public class SQLConstants {
     public static final String FIND_DOCTOR_BY_PATIENT_ID = "SELECT * FROM record WHERE patient_id = ?;";
     public static final String FIND_NURSE_BY_PATIENT_ID = "SELECT * FROM record WHERE patient_id = ?;";
     public static final String FIND_DOCTOR_INFO_BY_ID = "SELECT * FROM doctor_info WHERE id = ?;";
+    public static final String INSERT_RECORD = "INSERT INTO record (patient_id, doctor_id, nurse_id) VALUE (?,?,?)";
 }

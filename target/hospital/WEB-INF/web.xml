@@ -40,7 +40,7 @@
     <!--Description AdminPageServlet-->
     <servlet>
         <servlet-name>AdminPageServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.AdminPageServlet</servlet-class>
+        <servlet-class>ua.mushroom.hospital.servlets.admin.AdminPageServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -51,7 +51,7 @@
     <!--Description DoctorPageServlet-->
     <servlet>
         <servlet-name>DoctorPageServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.DoctorPageServlet</servlet-class>
+        <servlet-class>ua.mushroom.hospital.servlets.doctor.DoctorPageServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -62,7 +62,7 @@
     <!--Description NursePageServlet-->
     <servlet>
         <servlet-name>NursePageServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.NursePageServlet</servlet-class>
+        <servlet-class>ua.mushroom.hospital.servlets.nurse.NursePageServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -73,7 +73,7 @@
     <!--Description PatientPageServlet-->
     <servlet>
         <servlet-name>PatientPageServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.PatientPageServlet</servlet-class>
+        <servlet-class>ua.mushroom.hospital.servlets.patient.PatientPageServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -117,7 +117,7 @@
     <!--Description DoctorDetailsServlet-->
     <servlet>
         <servlet-name>DoctorDetailsServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.DoctorDetailsServlet</servlet-class>
+        <servlet-class>ua.mushroom.hospital.servlets.admin.DoctorDetailsServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -128,7 +128,7 @@
     <!--Description NurseDetailsServlet-->
     <servlet>
         <servlet-name>NurseDetailsServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.NurseDetailsServlet</servlet-class>
+        <servlet-class>ua.mushroom.hospital.servlets.admin.NurseDetailsServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -139,7 +139,7 @@
     <!--Description PatientDetailsServlet-->
     <servlet>
         <servlet-name>PatientDetailsServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.PatientDetailsServlet</servlet-class>
+        <servlet-class>ua.mushroom.hospital.servlets.admin.PatientDetailsServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

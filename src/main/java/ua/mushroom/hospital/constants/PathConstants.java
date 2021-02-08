@@ -9,4 +9,7 @@ public class PathConstants {
 
     public static final String LOGIN = "/login";
     public static final String REGISTER = "/register";
+    public static final String NURSE_DETAILS_PAGE = "/admin/nurse";
+    public static final String DOCTOR_DETAILS_PAGE = "/admin/doctor";
+    public static final String PATIENT_DETAILS_PAGE = "/admin/patient";
 }

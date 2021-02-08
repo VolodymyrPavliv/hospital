@@ -1,4 +1,4 @@
-package ua.mushroom.hospital.servlets;
+package ua.mushroom.hospital.servlets.admin;
 
 import ua.mushroom.hospital.constants.PathConstants;
 import ua.mushroom.hospital.dao.impl.DoctorInfoDAOImpl;

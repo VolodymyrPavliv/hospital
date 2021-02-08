@@ -53,6 +53,18 @@
         <input type="hidden" name="id" value="${user.getId()}"/>
         <input type="submit" value="Details"/>
     </form>
+    <form action="/admin/appointment" method="post">
+        <input type="hidden" name="id" value="${user.getId()}">
+        <label for = "doctorId"> Enter id: </label>
+        <input id = "doctorId" type="text" name = "doctorId"/>
+        <input type="submit" value="Appoint a doctor"/>
+    </form>
+    <form action="/admin/appointment" method="post">
+        <input type="hidden" name="id" value="${user.getId()}"/>
+        <label for = "nurseId"> Enter id: </label>
+        <input id = "nurseId" type="text" name="nurseId"/>
+        <input type="submit" value="Appoint a nurse"/>
+    </form>
 </c:forEach>
 </body>
 </html>

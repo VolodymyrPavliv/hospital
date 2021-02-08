@@ -1,4 +1,4 @@
-package ua.mushroom.hospital.servlets;
+package ua.mushroom.hospital.servlets.nurse;
 
 import ua.mushroom.hospital.constants.ViewConstants;
 
@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class DoctorPageServlet extends HttpServlet {
+public class NursePageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(ViewConstants.DOCTOR_PAGE).forward(req,resp);
+        req.getRequestDispatcher(ViewConstants.NURSE_PAGE).forward(req, resp);
     }
 }

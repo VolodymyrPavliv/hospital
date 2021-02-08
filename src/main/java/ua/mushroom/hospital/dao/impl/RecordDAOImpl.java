@@ -4,18 +4,34 @@ import ua.mushroom.hospital.constants.SQLConstants;
 import ua.mushroom.hospital.dao.RecordDAO;
 import ua.mushroom.hospital.db.ConnectionPool;
 import ua.mushroom.hospital.entities.DoctorInfo;
+import ua.mushroom.hospital.entities.Record;
 import ua.mushroom.hospital.entities.User;
 import ua.mushroom.hospital.utils.DBUtils;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class RecordDAOImpl implements RecordDAO {
+    @Override
+    public boolean addRecord(Record record) {
+        PreparedStatement statement;
+        try (Connection connection = ConnectionPool.getConnection()){
+            statement = connection.prepareStatement(SQLConstants.INSERT_RECORD, Statement.RETURN_GENERATED_KEYS);
+
+            statement.setInt(1, record.getPatientId());
+            statement.setInt(2, record.getDoctorId());
+            statement.setInt(3, record.getNurseId());
+
+            statement.execute();
+            return true;
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
     @Override
     public List<User> findPatientsByDoctorId(int doctorId) {
         List<User> users = new ArrayList<>();

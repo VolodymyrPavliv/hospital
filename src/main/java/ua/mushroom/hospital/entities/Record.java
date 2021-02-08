@@ -4,13 +4,13 @@ import java.sql.Date;
 
 public class Record {
     private int id;
-    private int patient_id;
-    private int doctor_id;
-    private int nurse_id;
-    private Date entry_date;
-    private Date discharge_date;
-    private String initial_diagnosis;
-    private String final_diagnosis;
+    private int patientId;
+    private int doctorId;
+    private int nurseId;
+    private Date entryDate;
+    private Date dischargeDate;
+    private String initialDiagnosis;
+    private String finalDiagnosis;
 
     public int getId() {
         return id;
@@ -20,59 +20,59 @@ public class Record {
         this.id = id;
     }
 
-    public int getPatient_id() {
-        return patient_id;
+    public int getPatientId() {
+        return patientId;
     }
 
-    public void setPatient_id(int patient_id) {
-        this.patient_id = patient_id;
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
     }
 
-    public int getDoctor_id() {
-        return doctor_id;
+    public int getDoctorId() {
+        return doctorId;
     }
 
-    public void setDoctor_id(int doctor_id) {
-        this.doctor_id = doctor_id;
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
     }
 
-    public int getNurse_id() {
-        return nurse_id;
+    public int getNurseId() {
+        return nurseId;
     }
 
-    public void setNurse_id(int nurse_id) {
-        this.nurse_id = nurse_id;
+    public void setNurseId(int nurseId) {
+        this.nurseId = nurseId;
     }
 
-    public Date getEntry_date() {
-        return entry_date;
+    public Date getEntryDate() {
+        return entryDate;
     }
 
-    public void setEntry_date(Date entry_date) {
-        this.entry_date = entry_date;
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
     }
 
-    public Date getDischarge_date() {
-        return discharge_date;
+    public Date getDischargeDate() {
+        return dischargeDate;
     }
 
-    public void setDischarge_date(Date discharge_date) {
-        this.discharge_date = discharge_date;
+    public void setDischargeDate(Date dischargeDate) {
+        this.dischargeDate = dischargeDate;
     }
 
-    public String getInitial_diagnosis() {
-        return initial_diagnosis;
+    public String getInitialDiagnosis() {
+        return initialDiagnosis;
     }
 
-    public void setInitial_diagnosis(String initial_diagnosis) {
-        this.initial_diagnosis = initial_diagnosis;
+    public void setInitialDiagnosis(String initialDiagnosis) {
+        this.initialDiagnosis = initialDiagnosis;
     }
 
-    public String getFinal_diagnosis() {
-        return final_diagnosis;
+    public String getFinalDiagnosis() {
+        return finalDiagnosis;
     }
 
-    public void setFinal_diagnosis(String final_diagnosis) {
-        this.final_diagnosis = final_diagnosis;
+    public void setFinalDiagnosis(String finalDiagnosis) {
+        this.finalDiagnosis = finalDiagnosis;
     }
 }
