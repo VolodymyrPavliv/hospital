@@ -10,7 +10,6 @@ public class ViewConstants {
     public static final String FORBIDDEN_PAGE = "/WEB-INF/views/forbidden_page.jsp";
     public static final String ABOUT_US = "/WEB-INF/views/about_us.jsp";
     public static final String NURSE_PAGE = "/WEB-INF/views/nurse_page.jsp";
-    public static final String NURSE_DETAILS_VIEW = "/WEB-INF/views/nurse_details.jsp";
-    public static final String DOCTOR_DETAILS_VIEW = "/WEB-INF/views/doctor_details.jsp";
-    public static final String PATIENT_DETAILS_VIEW = "/WEB-INF/views/patient_details.jsp";
+    public static final String USER_DETAILS_VIEW = "/WEB-INF/views/user_details.jsp";
+    public static final String RECORD_DETAILS_VIEW = "/WEB-INF/views/record_details.jsp";
 }

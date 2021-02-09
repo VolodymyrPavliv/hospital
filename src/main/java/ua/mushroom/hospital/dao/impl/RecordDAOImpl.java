@@ -3,9 +3,7 @@ package ua.mushroom.hospital.dao.impl;
 import ua.mushroom.hospital.constants.SQLConstants;
 import ua.mushroom.hospital.dao.RecordDAO;
 import ua.mushroom.hospital.db.ConnectionPool;
-import ua.mushroom.hospital.entities.DoctorInfo;
 import ua.mushroom.hospital.entities.Record;
-import ua.mushroom.hospital.entities.User;
 import ua.mushroom.hospital.utils.DBUtils;
 
 import java.sql.*;
@@ -23,6 +21,7 @@ public class RecordDAOImpl implements RecordDAO {
             statement.setInt(1, record.getPatientId());
             statement.setInt(2, record.getDoctorId());
             statement.setInt(3, record.getNurseId());
+            statement.setDate(4,record.getEntryDate());
 
             statement.execute();
             return true;
@@ -33,118 +32,21 @@ public class RecordDAOImpl implements RecordDAO {
     }
 
     @Override
-    public List<User> findPatientsByDoctorId(int doctorId) {
-        List<User> users = new ArrayList<>();
-        PreparedStatement statement = null;
+    public List<Record> findByPatientId(int patientId) {
+        List<Record> records = new ArrayList<>();
         ResultSet resultSet = null;
-
-        try(Connection connection = ConnectionPool.getConnection()) {
-            statement = connection.prepareStatement(SQLConstants.FIND_PATIENTS_BY_DOCTOR_ID);
-
-            statement.setInt(1, doctorId);
-            resultSet = statement.executeQuery();
-
-            while (resultSet.next()){
-                User user = findUserById(connection, resultSet.getInt("patient_id"))
-                        .get();
-
-                users.add(user);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }finally {
-            DBUtils.close(resultSet);
-            DBUtils.close(statement);
-        }
-        return users;    }
-
-    @Override
-    public List<User> findPatientsByNurseId(int id) {
-        List<User> users = new ArrayList<>();
         PreparedStatement statement = null;
-        ResultSet resultSet = null;
 
-        try(Connection connection = ConnectionPool.getConnection()) {
-            statement = connection.prepareStatement(SQLConstants.FIND_PATIENTS_BY_NURSE_ID);
-
-            statement.setInt(1, id);
-            resultSet = statement.executeQuery();
-
-            while (resultSet.next()){
-                User user = findUserById(connection, resultSet.getInt("patient_id"))
-                        .get();
-
-                users.add(user);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }finally {
-            DBUtils.close(resultSet);
-            DBUtils.close(statement);
-        }
-        return users;
-    }
-
-    @Override
-    public Optional<User> findDoctorByPatientId(int patientId) {
-        User doctor = new User();
-
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-
-        try (Connection connection = ConnectionPool.getConnection()){
-
-            statement = connection.prepareStatement(SQLConstants.FIND_DOCTOR_BY_PATIENT_ID);
-            statement.setInt(1,patientId);
-
-            resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                DoctorInfo doctorInfo = findDoctorById(connection, patientId).get();
-                doctor = findUserById(connection, doctorInfo.getUserId()).get();
-            }
-        }catch (SQLException e) {
-            DBUtils.close(resultSet);
-            DBUtils.close(statement);
-        }
-        return Optional.of(doctor);
-    }
-
-    @Override
-    public Optional<User> findNurseByPatientId(int patientId) {
-        User nurse = new User();
-
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-
-        try (Connection connection = ConnectionPool.getConnection()){
-
-            statement = connection.prepareStatement(SQLConstants.FIND_NURSE_BY_PATIENT_ID);
+        try (Connection connection = ConnectionPool.getConnection()) {
+            statement = connection.prepareStatement(SQLConstants.FIND_RECORD_BY_PATIENT_ID);
             statement.setInt(1, patientId);
 
             resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                nurse = findUserById(connection,resultSet.getInt("nurse_id")).get();
-            }
-        }catch (SQLException e) {
-            DBUtils.close(resultSet);
-            DBUtils.close(statement);
-        }
-        return Optional.of(nurse);
-    }
-
-    private Optional<User> findUserById(Connection connection, int id) {
-        User user = new User();
-        ResultSet resultSet = null;
-        PreparedStatement statement = null;
-
-        try {
-            statement = connection.prepareStatement(SQLConstants.FIND_USER_BY_ID);
-            statement.setInt(1, id);
-
-            resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                user = DBUtils.mapUser(resultSet);
+                Record r = mapRecord(resultSet);
+
+                records.add(r);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -153,31 +55,100 @@ public class RecordDAOImpl implements RecordDAO {
             DBUtils.close(statement);
         }
 
-        return Optional.of(user);
+        return records;
     }
 
-    private Optional<DoctorInfo> findDoctorById(Connection connection, int id) {
-        DoctorInfo doctor = new DoctorInfo();
-        PreparedStatement statement = null;
+    @Override
+    public List<Record> findByDoctorId(int doctorId) {
+        List<Record> records = new ArrayList<>();
         ResultSet resultSet = null;
+        PreparedStatement statement = null;
 
-        try {
-            statement = connection.prepareStatement(SQLConstants.FIND_DOCTOR_INFO_BY_ID);
+        try (Connection connection = ConnectionPool.getConnection()) {
+            statement = connection.prepareStatement(SQLConstants.FIND_RECORD_BY_DOCTOR_ID);
+            statement.setInt(1, doctorId);
 
-            statement.setInt(1, id);
             resultSet = statement.executeQuery();
 
-            while (resultSet.next()){
-                doctor.setId(resultSet.getInt("id"));
-                doctor.setCategory(resultSet.getString("category"));
-                doctor.setUserId(resultSet.getInt("user_id"));
+            while (resultSet.next()) {
+                Record r = mapRecord(resultSet);
+
+                records.add(r);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }finally {
+        } finally {
             DBUtils.close(resultSet);
             DBUtils.close(statement);
         }
-        return Optional.of(doctor);
+
+        return records;
+    }
+
+    @Override
+    public List<Record> findByNurseId(int nurseId) {
+        List<Record> records = new ArrayList<>();
+        ResultSet resultSet = null;
+        PreparedStatement statement = null;
+
+        try (Connection connection = ConnectionPool.getConnection()) {
+            statement = connection.prepareStatement(SQLConstants.FIND_RECORD_BY_NURSE_ID);
+            statement.setInt(1, nurseId);
+
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Record r = mapRecord(resultSet);
+
+                records.add(r);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            DBUtils.close(resultSet);
+            DBUtils.close(statement);
+        }
+
+        return records;
+    }
+
+    @Override
+    public Optional<Record> findById(int id) {
+        Record record = new Record();
+        ResultSet resultSet = null;
+        PreparedStatement statement = null;
+
+        try (Connection connection = ConnectionPool.getConnection()) {
+            statement = connection.prepareStatement(SQLConstants.FIND_RECORD_BY_ID);
+            statement.setInt(1, id);
+
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                record = mapRecord(resultSet);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            DBUtils.close(resultSet);
+            DBUtils.close(statement);
+        }
+
+        return Optional.of(record);
+    }
+
+    private Record mapRecord(ResultSet resultSet) throws SQLException {
+        Record record = new Record();
+
+        record.setId(resultSet.getInt("id"));
+        record.setPatientId(resultSet.getInt("patient_id"));
+        record.setDoctorId(resultSet.getInt("doctor_id"));
+        record.setNurseId(resultSet.getInt("nurse_id"));
+        record.setEntryDate(resultSet.getDate("entry_date"));
+        record.setDischargeDate(resultSet.getDate("discharge_date"));
+        record.setInitialDiagnosis(resultSet.getString("initial_diagnosis"));
+        record.setFinalDiagnosis(resultSet.getString("final_diagnosis"));
+
+        return record;
     }
 }

@@ -114,38 +114,39 @@
         <url-pattern>/aboutUs</url-pattern>
     </servlet-mapping>
 
-    <!--Description DoctorDetailsServlet-->
+    <!--Description UserDetailsServlet-->
     <servlet>
-        <servlet-name>DoctorDetailsServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.admin.DoctorDetailsServlet</servlet-class>
+        <servlet-name>UserDetailsServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.admin.UserDetailsServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>DoctorDetailsServlet</servlet-name>
-        <url-pattern>/admin/doctor</url-pattern>
+        <servlet-name>UserDetailsServlet</servlet-name>
+        <url-pattern>/admin/user</url-pattern>
     </servlet-mapping>
 
-    <!--Description NurseDetailsServlet-->
+    <!--Description RecordDetailsServlet-->
     <servlet>
-        <servlet-name>NurseDetailsServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.admin.NurseDetailsServlet</servlet-class>
+        <servlet-name>RecordDetailsServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.admin.RecordDetailsServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>NurseDetailsServlet</servlet-name>
-        <url-pattern>/admin/nurse</url-pattern>
+        <servlet-name>RecordDetailsServlet</servlet-name>
+        <url-pattern>/admin/record</url-pattern>
     </servlet-mapping>
 
-    <!--Description PatientDetailsServlet-->
+    <!--Description AddRecordServlet-->
     <servlet>
-        <servlet-name>PatientDetailsServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.admin.PatientDetailsServlet</servlet-class>
+        <servlet-name>AddRecordServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.admin.AddRecordServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>PatientDetailsServlet</servlet-name>
-        <url-pattern>/admin/patient</url-pattern>
+        <servlet-name>AddRecordServlet</servlet-name>
+        <url-pattern>/admin/addRecord</url-pattern>
     </servlet-mapping>
+
 
     <!--Description DispatcherServlet-->
     <filter>

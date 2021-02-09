@@ -7,4 +7,5 @@ import java.util.Optional;
 public interface DoctorInfoDAO {
     Optional<DoctorInfo> findByUserId(int userId);
     boolean addDoctorInfo(int id, String category);
+    Optional<DoctorInfo> findId(int id);
 }

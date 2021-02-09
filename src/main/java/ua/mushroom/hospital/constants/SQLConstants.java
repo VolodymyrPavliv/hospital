@@ -17,12 +17,12 @@ public class SQLConstants {
     //For DoctorInfoDAO
     public static final String FIND_DOCTOR_INFO_BY_USER_ID = "SELECT * FROM doctor_info WHERE user_id = ?;";
     public static final String INSERT_DOCTOR_INFO = "INSERT INTO doctor_info(category, user_id) VALUE (?, ?);";
+    public static final String FIND_DOCTOR_BY_ID = "SELECT * FROM doctor_info WHERE id = ?;";
 
     //For RecordDAO
-    public static final String FIND_PATIENTS_BY_DOCTOR_ID = "SELECT * FROM record WHERE doctor_id = ?;";
-    public static final String FIND_PATIENTS_BY_NURSE_ID = "SELECT * FROM record WHERE nurse_id = ?;";
-    public static final String FIND_DOCTOR_BY_PATIENT_ID = "SELECT * FROM record WHERE patient_id = ?;";
-    public static final String FIND_NURSE_BY_PATIENT_ID = "SELECT * FROM record WHERE patient_id = ?;";
-    public static final String FIND_DOCTOR_INFO_BY_ID = "SELECT * FROM doctor_info WHERE id = ?;";
-    public static final String INSERT_RECORD = "INSERT INTO record (patient_id, doctor_id, nurse_id) VALUE (?,?,?)";
+    public static final String FIND_RECORD_BY_PATIENT_ID = "SELECT * FROM record WHERE patient_id = ?;";
+    public static final String FIND_RECORD_BY_ID = "SELECT * FROM record WHERE id = ?;";
+    public static final String FIND_RECORD_BY_DOCTOR_ID = "SELECT * FROM record WHERE doctor_id = ?;";
+    public static final String FIND_RECORD_BY_NURSE_ID = "SELECT * FROM record WHERE nurse_id = ?;";
+    public static final String INSERT_RECORD = "INSERT INTO record(patient_id, doctor_id, nurse_id, entry_date) VALUE (?, ?, ?, ?);";
 }

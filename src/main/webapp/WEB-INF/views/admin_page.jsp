@@ -31,8 +31,8 @@
 <h1>List of doctors</h1>
 <c:forEach items="${doctors}" var="user">
     <p>${user.getName()} ${user.getSurname()}</p>
-    <form action="/admin/doctor" method="get">
-        <input type="hidden" name="id" value="${user.getId()}"/>
+    <form action="/admin/user" method="get">
+        <input type="hidden" name="doctorId" value="${user.getId()}"/>
         <input type="submit" value="Details"/>
     </form>
 </c:forEach>
@@ -40,8 +40,8 @@
 <h1>List of nurses</h1>
 <c:forEach items="${nurses}" var="user">
     <p>${user.getName()} ${user.getSurname()}</p>
-    <form action="/admin/nurse" method="get">
-        <input type="hidden" name="id" value="${user.getId()}"/>
+    <form action="/admin/user" method="get">
+        <input type="hidden" name="nurseId" value="${user.getId()}"/>
         <input type="submit" value="Details"/>
     </form>
 </c:forEach>
@@ -49,21 +49,9 @@
 <h1>List of patients</h1>
 <c:forEach items="${patients}" var="user">
     <p>${user.getName()} ${user.getSurname()}</p>
-    <form action="/admin/patient" method="get">
-        <input type="hidden" name="id" value="${user.getId()}"/>
+    <form action="/admin/user" method="get">
+        <input type="hidden" name="patientId" value="${user.getId()}"/>
         <input type="submit" value="Details"/>
-    </form>
-    <form action="/admin/appointment" method="post">
-        <input type="hidden" name="id" value="${user.getId()}">
-        <label for = "doctorId"> Enter id: </label>
-        <input id = "doctorId" type="text" name = "doctorId"/>
-        <input type="submit" value="Appoint a doctor"/>
-    </form>
-    <form action="/admin/appointment" method="post">
-        <input type="hidden" name="id" value="${user.getId()}"/>
-        <label for = "nurseId"> Enter id: </label>
-        <input id = "nurseId" type="text" name="nurseId"/>
-        <input type="submit" value="Appoint a nurse"/>
     </form>
 </c:forEach>
 </body>
