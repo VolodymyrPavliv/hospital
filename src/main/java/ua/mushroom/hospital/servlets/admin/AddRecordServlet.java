@@ -1,5 +1,6 @@
 package ua.mushroom.hospital.servlets.admin;
 
+import ua.mushroom.hospital.constants.PathConstants;
 import ua.mushroom.hospital.constants.ViewConstants;
 import ua.mushroom.hospital.dao.impl.RecordDAOImpl;
 import ua.mushroom.hospital.entities.Record;
@@ -17,11 +18,14 @@ public class AddRecordServlet extends HttpServlet {
         RecordDAOImpl recordDAO = new RecordDAOImpl();
         Record record = new Record();
 
-        record.setPatientId(Integer.parseInt(req.getParameter("patientId")));
+        int patientId = Integer.parseInt(req.getParameter("patientId"));
+        record.setPatientId(patientId);
         record.setDoctorId(Integer.parseInt(req.getParameter("doctorId")));
         record.setNurseId(Integer.parseInt(req.getParameter("nurseId")));
         record.setEntryDate(Date.valueOf(req.getParameter("entryDate")));
 
         recordDAO.addRecord(record);
+
+        resp.sendRedirect(PathConstants.USER_DETAILS_PAGE+"?patientId="+patientId);
     }
 }

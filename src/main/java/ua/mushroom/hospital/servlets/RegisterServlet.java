@@ -1,5 +1,6 @@
 package ua.mushroom.hospital.servlets;
 
+import ua.mushroom.hospital.constants.PathConstants;
 import ua.mushroom.hospital.constants.ViewConstants;
 import ua.mushroom.hospital.dao.impl.UserDAOImpl;
 import ua.mushroom.hospital.entities.User;
@@ -24,7 +25,7 @@ public class RegisterServlet extends HttpServlet {
         boolean added = addUser(req);
 
         if(added) {
-            resp.sendRedirect("/login");
+            resp.sendRedirect(PathConstants.LOGIN);
             return;
         }
 
