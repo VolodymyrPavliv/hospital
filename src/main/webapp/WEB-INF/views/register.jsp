@@ -2,29 +2,34 @@
 <html>
 <head>
     <title>Registration</title>
+    <link href="resources/style.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
-    <form action="/register" method="post">
-        <label for="name">Name: </label><br>
-        <input type="text" id = "name" name="name"/><br>
+<body class="body-blue">
+    <form action="/register" method="post" class="form-signin">
+        <h2 class="form-heading">Registration</h2>
+        <div class="form-group">
+            <label for="name"><strong>Name: </strong></label>
+            <input type="text" id = "name" name="name" class="form-control" placeholder="Enter name"/><br>
 
-        <label for="surname">Surname: </label><br>
-        <input type="text" id="surname" name="surname"/><br>
+            <label for="surname"><strong>Surname: </strong></label>
+            <input type="text" id="surname" name="surname" class="form-control" placeholder="Enter surname"/><br>
 
-        <label for="birthday">Birthday: </label><br>
-        <input type="date" id="birthday" name="birthday"/><br>
+            <label for="birthday"><strong>Date of birth: </strong></label>
+            <input type="date" id="birthday" name="birthday" class="form-control"/><br>
 
-        <label for="email">Email: </label><br>
-        <input type="email" id="email" name="email"/><br>
+            <label for="email"><strong>Email: </strong></label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter email"/><br>
 
-        <label for="password">Password: </label><br>
-        <input type="password" id="password" name="password"/><br>
+            <label for="password"><strong>Password: </strong></label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter password"/><br>
 
-        <label for="confirm_password">Confirm Password: </label><br>
-        <input type="password" id="confirm_password" name="confirm-password"/><br><br>
+            <label for="confirm_password"><strong>Confirm Password: </strong></label>
+            <input type="password" id="confirm_password" name="confirm-password" class="form-control" placeholder="Confirm password"/>
 
-        
-        <input type="submit" value="Create Account"/>
+            <button class="btn btn-lg btn-danger btn-block" type="submit">Register</button>
+            <h4 class="text-center"><a href="/login">Login</a></h4>
+        </div>
     </form>
 </body>
 </html>

@@ -147,6 +147,16 @@
         <url-pattern>/admin/addRecord</url-pattern>
     </servlet-mapping>
 
+    <!--Description SortingServlet-->
+    <servlet>
+        <servlet-name>SortingServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.admin.SortingServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SortingServlet</servlet-name>
+        <url-pattern>/admin/sorting</url-pattern>
+    </servlet-mapping>
 
     <!--Description DispatcherServlet-->
     <filter>
@@ -158,4 +168,10 @@
         <filter-name>DispatcherFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!---Description resources-->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/resources/*</url-pattern>
+    </servlet-mapping>
 </web-app>

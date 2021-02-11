@@ -29,6 +29,17 @@
 </c:forEach>
 -------------------------------------
 <h1>List of doctors</h1>
+<form action="/admin/sorting" method="post">
+    <select name="type">
+        <option value="0" disabled selected>Choose sorting type</option>
+        <option value="1">Alphabet</option>
+        <option value="2">Category</option>
+    </select>
+    <button type="submit">
+        <strong>sort</strong>
+    </button>
+</form>
+
 <c:forEach items="${doctors}" var="user">
     <p>${user.getName()} ${user.getSurname()}</p>
     <form action="/admin/user" method="get">
@@ -38,6 +49,17 @@
 </c:forEach>
 -------------------------------------
 <h1>List of nurses</h1>
+<form action="/admin/sorting" method="post">
+    <select name="type">
+        <option value="0" disabled selected>Choose sorting type</option>
+        <option value="3">Alphabet</option>
+        <option value="4">Birthday</option>
+    </select>
+    <button type="submit">
+        <strong>sort</strong>
+    </button>
+</form>
+
 <c:forEach items="${nurses}" var="user">
     <p>${user.getName()} ${user.getSurname()}</p>
     <form action="/admin/user" method="get">
@@ -47,6 +69,17 @@
 </c:forEach>
 -------------------------------------
 <h1>List of patients</h1>
+<form action="/admin/sorting" method="post">
+    <select name="type">
+        <option value="0" disabled selected>Choose sorting type</option>
+        <option value="5">Alphabet</option>
+        <option value="6">Birthday</option>
+    </select>
+    <button type="submit">
+        <strong>sort</strong>
+    </button>
+</form>
+
 <c:forEach items="${patients}" var="user">
     <p>${user.getName()} ${user.getSurname()}</p>
     <form action="/admin/user" method="get">

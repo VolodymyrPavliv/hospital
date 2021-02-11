@@ -1,23 +1,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Login</title>
+    <link href="resources/style.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
-<form action="/login" method="post">
-    <c:if test="${not_registered_yet != null}">
-        <p>You are not registered yet.</p>
-        <p>Please try logging in later.</p>
-    </c:if>
-    <label for="email">Email: </label><br>
-    <input type="email" id="email" name="email"/><br>
-
-    <label for="password">Password: </label><br>
-    <input type="password" id="password" name="password"/><br><br>
-
-    <input type="submit" value="Login"/>
-    <h4 class="text-center"><a href="/register">Create an account</a></h4>
-</form>
+<body class="body-red">
+    <div class="container mt-5">
+        <form action="/login" method="post" class="form-signin">
+            <h2 class="form-heading">Login</h2>
+            <div class="form-group">
+                <c:if test="${not_registered_yet!=null}">
+                <h3 class="text-left text-info">You're not registered yet.
+                Please, try later.</h3>
+                </c:if>
+                <label for="email"><strong>Email:</strong> </label>
+                <input id = "email" class="form-control" name="email" type="email" placeholder="Your email"/><br>
+                <label for="password"><strong>Password: </strong></label>
+                <input id = "password" class="form-control" name="password" type="password" placeholder="Your password" />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <h4 class="text-center"><a href="/register">Create an account</a></h4>
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>
+
