@@ -2,12 +2,12 @@
 <html>
 <head>
     <title>Registration</title>
-    <link href="resources/style.css" rel="stylesheet" type="text/css"/>
-    <link href="resources/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="body-blue">
+    <h1 class="text-xl-center">Registration</h1>
     <form action="/register" method="post" class="form-signin">
-        <h2 class="form-heading">Registration</h2>
         <div class="form-group">
             <label for="name"><strong>Name: </strong></label>
             <input type="text" id = "name" name="name" class="form-control" placeholder="Enter name"/><br>

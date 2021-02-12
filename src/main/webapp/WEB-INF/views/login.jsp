@@ -5,13 +5,13 @@
 <html lang="en">
 <head>
     <title>Login</title>
-    <link href="resources/style.css" rel="stylesheet" type="text/css"/>
-    <link href="resources/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 </head>
-<body class="body-red">
+<body class="body-blue">
     <div class="container mt-5">
         <form action="/login" method="post" class="form-signin">
-            <h2 class="form-heading">Login</h2>
+            <h1 class="form-heading">Login</h1>
             <div class="form-group">
                 <c:if test="${not_registered_yet!=null}">
                 <h3 class="text-left text-info">You're not registered yet.
@@ -21,12 +21,11 @@
                 <input id = "email" class="form-control" name="email" type="email" placeholder="Your email"/><br>
                 <label for="password"><strong>Password: </strong></label>
                 <input id = "password" class="form-control" name="password" type="password" placeholder="Your password" />
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <button class="btn btn-lg btn-danger btn-block" type="submit">Login</button>
                 <h4 class="text-center"><a href="/register">Create an account</a></h4>
             </div>
         </form>
     </div>
 </body>
-
 </html>
 
