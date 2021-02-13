@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -11,8 +11,6 @@
     <meta name="author" content="">
 
     <title>Admin Page</title>
-    <link href="resources/css/common.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="resources/css/style.css"> <!-- Resource style -->
     <!-- Bootstrap Core CSS -->
     <link href="resources/bootstrap.min.css" rel="stylesheet">
 
@@ -23,7 +21,7 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
 </head>
 
-<body style="background-color: #befafc">
+<body style="background-color: #6df1f6">
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -41,7 +39,7 @@
                     <a href="<c:url value="/admin"/>">Admin</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/aboutUs"/>">About us</a>
+                    <a href="<c:url value="#"/>">About us</a>
                 </li>
                 <li>
                     <a href="<c:url value="#"/>">Contact us</a>
@@ -54,7 +52,8 @@
     </div>
 </nav>
 
-<header class="intro-header" style="background-color: #befafc; background-image: url('../../resources/img/home-page.jpg')">
+<header class="intro-header" style="
+background-color: #6df1f6; background-image: url('../../resources/img/home-page.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -114,9 +113,9 @@
                 <h3>There are no doctors.</h3>
             </c:if>
         <c:forEach items="${doctors}" var="user">
-            <form action="/admin/user" method="get">
-                <input type="hidden" name="doctorId" value="${user.getId()}"/>
-                <button type="submit" class="btn-danger btn-link"><strong>User #${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
+            <form action="/user">
+                <button type="submit" name="userId" value="${user.getId()}" class="btn-danger btn-link">
+                <strong>User #${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
             </form>
         </c:forEach>
         </div>
@@ -139,9 +138,9 @@
                 <h3>There are no nurses.</h3>
             </c:if>
         <c:forEach items="${nurses}" var="user">
-            <form action="/admin/user" method="get">
-                <input type="hidden" name="nurseId" value="${user.getId()}"/>
-                <button class="btn-danger btn-link" type="submit"><strong>User #${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
+            <form action="/user">
+                <button class="btn-danger btn-link" name="userId" value="${user.getId()}" type="submit">
+                    <strong>User #${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
             </form>
         </c:forEach>
         </div>
@@ -163,9 +162,9 @@
                 <h3>There are no patients.</h3>
             </c:if>
         <c:forEach items="${patients}" var="user">
-            <form action="/admin/user" method="get">
-                <input type="hidden" name="patientId" value="${user.getId()}"/>
-                <button class="btn-danger btn-link" type="submit"><strong>User #${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
+            <form action="/user">
+                <button class="btn-danger btn-link" type="submit" name="userId" value="${user.getId()}">
+                    <strong>User #${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
             </form>
         </c:forEach>
         </div>

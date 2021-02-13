@@ -103,17 +103,6 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
-    <!--Description AboutUsServlet-->
-    <servlet>
-        <servlet-name>AboutUsServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.AboutUsServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>AboutUsServlet</servlet-name>
-        <url-pattern>/aboutUs</url-pattern>
-    </servlet-mapping>
-
     <!--Description UserDetailsServlet-->
     <servlet>
         <servlet-name>UserDetailsServlet</servlet-name>
@@ -122,7 +111,7 @@
 
     <servlet-mapping>
         <servlet-name>UserDetailsServlet</servlet-name>
-        <url-pattern>/admin/user</url-pattern>
+        <url-pattern>/user</url-pattern>
     </servlet-mapping>
 
     <!--Description RecordDetailsServlet-->
@@ -133,7 +122,7 @@
 
     <servlet-mapping>
         <servlet-name>RecordDetailsServlet</servlet-name>
-        <url-pattern>/admin/record</url-pattern>
+        <url-pattern>/record</url-pattern>
     </servlet-mapping>
 
     <!--Description AddRecordServlet-->

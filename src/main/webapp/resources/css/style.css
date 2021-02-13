@@ -22,7 +22,7 @@ html, body {
 body {
   font-size: 100%;
   font-family: "Ubuntu", sans-serif;
-  background-color: #befafc;
+  background-color: #6df1f6;
 }
 
 a {
@@ -57,7 +57,7 @@ Main components
   position: relative;
   height: 100%;
   overflow: hidden;
-  background-color: #befafc;
+  background-color: #6df1f6;
   /* slightly visible only when we resize this element */
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
   z-index: 1;
@@ -193,7 +193,7 @@ Main components
   display: inline-block;
   width: 18px;
   height: 2px;
-  background-color: #befafc;
+  background-color: #6df1f6;
   vertical-align: middle;
   margin-left: 10px;
   -webkit-transform: translateY(-2px);
@@ -246,7 +246,7 @@ Main components
   left: 0;
   width: 100%;
   height: 100%;
-  background: #befafc;
+  background: #6df1f6;
   /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
@@ -320,7 +320,7 @@ Main components
   left: 10px;
   width: 20px;
   height: 3px;
-  background-color: #befafc;
+  background-color: #6df1f6;
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property: -moz-transform;
   transition-property: transform;
