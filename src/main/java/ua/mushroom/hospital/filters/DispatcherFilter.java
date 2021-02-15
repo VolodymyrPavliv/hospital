@@ -15,6 +15,7 @@ import java.util.Map;
 
 public class DispatcherFilter implements Filter {
     private static final Map<String, String> PROTECTED_URIS = new HashMap<>();
+
     private static final List<String> GUEST = new ArrayList<>();
 
     static{
@@ -23,10 +24,13 @@ public class DispatcherFilter implements Filter {
 
         PROTECTED_URIS.put(PathConstants.ADMIN_PAGE,"ADMIN");
         PROTECTED_URIS.put(PathConstants.USER_DETAILS_PAGE,"ADMIN");
-        PROTECTED_URIS.put(PathConstants.RECORD_DETAILS_PAGE,"ADMIN");
+        PROTECTED_URIS.put(PathConstants.ADMIN_RECORD_PAGE,"ADMIN");
         PROTECTED_URIS.put(PathConstants.DOCTOR_PAGE,"DOCTOR");
+        PROTECTED_URIS.put(PathConstants.DOCTOR_RECORD_PAGE,"DOCTOR");
         PROTECTED_URIS.put(PathConstants.NURSE_PAGE,"NURSE");
+        PROTECTED_URIS.put(PathConstants.NURSE_RECORD_PAGE,"NURSE");
         PROTECTED_URIS.put(PathConstants.PATIENT_PAGE,"PATIENT");
+        PROTECTED_URIS.put(PathConstants.PATIENT_RECORD_PAGE,"PATIENT");
     }
 
     @Override

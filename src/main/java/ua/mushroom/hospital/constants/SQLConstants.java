@@ -25,4 +25,10 @@ public class SQLConstants {
     public static final String FIND_RECORD_BY_DOCTOR_ID = "SELECT * FROM record WHERE doctor_id = ?;";
     public static final String FIND_RECORD_BY_NURSE_ID = "SELECT * FROM record WHERE nurse_id = ?;";
     public static final String INSERT_RECORD = "INSERT INTO record(patient_id, doctor_id, nurse_id, entry_date) VALUE (?, ?, ?, ?);";
+    public static final String ADD_INITIAL_DIAGNOSIS = "UPDATE record SET initial_diagnosis = (?) WHERE id = ?;";
+    public static final String ADD_FINAL_DIAGNOSIS = "UPDATE record SET final_diagnosis = (?) WHERE id = ?;";
+    public static final String ADD_DISCHARGE_DATE = "UPDATE record SET discharge_date = (?) WHERE id = ?;";
+
+    //For AssignmentDAO
+    public static final String FIND_ASSIGNMENT_BY_RECORD_ID = "SELECT * FROM assignment WHERE record_id = ?;";
 }

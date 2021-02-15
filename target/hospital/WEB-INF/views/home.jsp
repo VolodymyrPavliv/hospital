@@ -31,6 +31,7 @@
         <li><a href="/aboutUs"><span>About us</span></a></li>
         <li><a href="/contactUs"><span>Contact us</span></a></li>
         <li><a href="/login"><span>Login</span></a></li>
+        <li><a href="/register"><span>Create an account</span></a></li>
     </ul>
     <a href="#0" class="cd-close-menu">Close<span></span></a>
 </nav>

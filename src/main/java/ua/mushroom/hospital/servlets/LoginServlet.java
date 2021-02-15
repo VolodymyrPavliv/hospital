@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
         if (user.isPresent() && email != null && password != null) {
             session.setAttribute("role",
                     roleDAO.findById(user.get().getRole_id()).getName());
+            session.setAttribute("userId", user.get().getId());
 
             resp.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
 

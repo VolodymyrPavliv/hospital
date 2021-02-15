@@ -1,14 +1,18 @@
 package ua.mushroom.hospital.entities;
 
+import ua.mushroom.hospital.dao.impl.UserDAOImpl;
+
 import java.sql.Date;
 
 public class Assignment {
     private int id;
     private String type;
     private String description;
-    private int user_id;
+    private int userId;
+    private User user;
     private Date date;
-    private int record_id;
+    private int recordId;
+
 
     public int getId() {
         return id;
@@ -34,12 +38,12 @@ public class Assignment {
         this.description = description;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public Date getDate() {
@@ -50,11 +54,15 @@ public class Assignment {
         this.date = date;
     }
 
-    public int getRecord_id() {
-        return record_id;
+    public int getRecordId() {
+        return recordId;
     }
 
-    public void setRecord_id(int record_id) {
-        this.record_id = record_id;
+    public void setRecordId(int recordId) {
+        this.recordId = recordId;
+    }
+
+    public User getUser(int userId) {
+        return new UserDAOImpl().findById(userId).get();
     }
 }

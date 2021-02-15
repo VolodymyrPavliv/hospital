@@ -32,6 +32,72 @@ public class RecordDAOImpl implements RecordDAO {
     }
 
     @Override
+    public boolean addInitialDiagnosis(int id, String initialDiagnosis) {
+        PreparedStatement statement = null;
+
+        try (Connection connection = ConnectionPool.getConnection()) {
+            statement = connection.prepareStatement(SQLConstants.ADD_INITIAL_DIAGNOSIS);
+
+            statement.setString(1, initialDiagnosis);
+            statement.setInt(2, id);
+
+            statement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            DBUtils.close(statement);
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean addFinalDiagnosis(int id, String finalDiagnosis) {
+        PreparedStatement statement = null;
+
+        try (Connection connection = ConnectionPool.getConnection()) {
+            statement = connection.prepareStatement(SQLConstants.ADD_FINAL_DIAGNOSIS);
+
+            statement.setString(1, finalDiagnosis);
+            statement.setInt(2, id);
+
+            statement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            DBUtils.close(statement);
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean addDischargeDate(int id, Date dischargeDate) {
+        PreparedStatement statement = null;
+
+        try (Connection connection = ConnectionPool.getConnection()) {
+            statement = connection.prepareStatement(SQLConstants.ADD_DISCHARGE_DATE);
+
+            statement.setDate(1, dischargeDate);
+            statement.setInt(2, id);
+
+            statement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            DBUtils.close(statement);
+        }
+
+        return false;
+    }
+
+    @Override
     public List<Record> findByPatientId(int patientId) {
         List<Record> records = new ArrayList<>();
         ResultSet resultSet = null;

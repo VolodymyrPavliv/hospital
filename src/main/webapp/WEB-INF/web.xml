@@ -114,15 +114,48 @@
         <url-pattern>/user</url-pattern>
     </servlet-mapping>
 
-    <!--Description RecordDetailsServlet-->
+    <!--Description AdminRecordServlet-->
     <servlet>
-        <servlet-name>RecordDetailsServlet</servlet-name>
-        <servlet-class>ua.mushroom.hospital.servlets.admin.RecordDetailsServlet</servlet-class>
+        <servlet-name>AdminRecordServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.admin.AdminRecordServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>RecordDetailsServlet</servlet-name>
-        <url-pattern>/record</url-pattern>
+        <servlet-name>AdminRecordServlet</servlet-name>
+        <url-pattern>/adminRecord</url-pattern>
+    </servlet-mapping>
+
+    <!--Description DoctorDetailsServlet-->
+    <servlet>
+        <servlet-name>DoctorRecordServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.doctor.DoctorRecordServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DoctorRecordServlet</servlet-name>
+        <url-pattern>/doctorRecord</url-pattern>
+    </servlet-mapping>
+
+    <!--Description DoctorDetailsServlet-->
+    <servlet>
+        <servlet-name>NurseRecordServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.nurse.NurseRecordServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>NurseRecordServlet</servlet-name>
+        <url-pattern>/nurseRecord</url-pattern>
+    </servlet-mapping>
+
+    <!--Description DoctorDetailsServlet-->
+    <servlet>
+        <servlet-name>PatientRecordServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.patient.PatientRecordServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PatientRecordServlet</servlet-name>
+        <url-pattern>/patientRecord</url-pattern>
     </servlet-mapping>
 
     <!--Description AddRecordServlet-->
@@ -133,10 +166,32 @@
 
     <servlet-mapping>
         <servlet-name>AddRecordServlet</servlet-name>
-        <url-pattern>/admin/addRecord</url-pattern>
+        <url-pattern>/addRecord</url-pattern>
     </servlet-mapping>
 
-    <!--Description DispatcherServlet-->
+    <!--Description EditRecordServlet-->
+    <servlet>
+        <servlet-name>EditRecordServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.EditRecordServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditRecordServlet</servlet-name>
+        <url-pattern>/editRecord</url-pattern>
+    </servlet-mapping>
+
+    <!--Description AddAssignmentServlet-->
+    <servlet>
+        <servlet-name>AddAssignmentServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.AddAssignmentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddAssignmentServlet</servlet-name>
+        <url-pattern>/addAssignment</url-pattern>
+    </servlet-mapping>
+
+    <!--Description DispatcherFilter-->
     <filter>
         <filter-name>DispatcherFilter</filter-name>
         <filter-class>ua.mushroom.hospital.filters.DispatcherFilter</filter-class>

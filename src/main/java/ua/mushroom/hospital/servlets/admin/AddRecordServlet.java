@@ -18,7 +18,7 @@ public class AddRecordServlet extends HttpServlet {
         RecordDAOImpl recordDAO = new RecordDAOImpl();
         Record record = new Record();
 
-        int patientId = Integer.parseInt(req.getParameter("patientId"));
+        int patientId = Integer.parseInt(req.getParameter("userId"));
         record.setPatientId(patientId);
         record.setDoctorId(Integer.parseInt(req.getParameter("doctorId")));
         record.setNurseId(Integer.parseInt(req.getParameter("nurseId")));
@@ -26,6 +26,6 @@ public class AddRecordServlet extends HttpServlet {
 
         recordDAO.addRecord(record);
 
-        resp.sendRedirect(PathConstants.USER_DETAILS_PAGE+"?patientId="+patientId);
+        resp.sendRedirect(PathConstants.USER_DETAILS_PAGE+"?userId="+patientId);
     }
 }

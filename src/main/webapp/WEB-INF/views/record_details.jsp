@@ -72,6 +72,54 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <!-- Main Content -->
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <c:if test="${isDoctor!=null}">
+        <div class="post-preview">
+            <button data-toggle="collapse" data-target="#initialDiagnosis" class="btn-secondary btn-link">
+                <h3>Add initial diagnosis</h3></button>
+            <div id="initialDiagnosis" class="collapse">
+                <form action="/editRecord" method="post">
+                    <input type="hidden" name="id" value="${record.getId()}">
+                    <textarea name="initialDiagnosis"></textarea>
+                    <button type="submit" class="btn-secondary btn-danger">
+                        Add</button>
+                </form>
+            </div>
+            <br>
+            <button data-toggle="collapse" data-target="#finalDiagnosis" class="btn-secondary btn-link">
+                <h3>Add final diagnosis</h3></button>
+            <div id="finalDiagnosis" class="collapse">
+                <form action="/editRecord" method="post">
+                    <input type="hidden" name="id" value="${record.getId()}">
+                    <textarea name="finalDiagnosis"></textarea><br><br>
+                    <label for="discharge">Discharge date: </label>
+                    <input type="date" name="dischargeDate" id="discharge"><br>
+                    <button type="submit" class="btn-secondary btn-danger">
+                        Add</button>
+                </form>
+            </div>
+            <br>
+            <button data-toggle="collapse" data-target="#doctorAssignment" class="btn-secondary btn-link">
+                <h3>Add an assignment</h3></button>
+            <div id="doctorAssignment" class="collapse">
+                <form action="/addAssignment" method="post">
+                    <button type="submit" class="btn-secondary btn-danger">
+                        Add</button>
+                </form>
+            </div>
+        </div>
+        </c:if>
+        <c:if test="${isNurse!=null}">
+            <div class="post-preview">
+                <button data-toggle="collapse" data-target="#nurseAssignment" class="btn-secondary btn-link">
+                    <h3>Add an assignment</h3></button>
+                <div id="nurseAssignment" class="collapse">
+                    <form action="/addAssignment" method="post">
+                        <button type="submit" class="btn-secondary btn-danger">
+                            Add</button>
+                    </form>
+                </div>
+            </div>
+        </c:if>
         <div class="post-preview">
             <p><strong>Patient: </strong> ${patient.getName()} ${patient.getSurname()}</p>
             <p><strong>Entry date: </strong> ${record.getEntryDate()}</p>
@@ -83,6 +131,24 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
             <p><strong>Category: </strong> ${doctorInfo.getCategory()}</p>
             <hr>
             <p><strong>Nurse: </strong> ${nurse.getName()} ${nurse.getSurname()}</p>
+        </div>
+        <hr>
+        <div class="post-preview">
+            <button data-toggle="collapse" data-target="#assignments" class="btn-secondary btn-link">
+                <h3>Assignments</h3></button>
+            <div id="assignments" class="collapse">
+                <c:if test="${assignments.size()==0}">
+                    <h3>There are no assignments.</h3>
+                </c:if>
+                <c:forEach items="${assignments}" var="assignment">
+                    <p><strong>Type: </strong> ${assignment.getType()}</p>
+                    <p class="text-xl-center"><strong>Description</strong></p>
+                    <p>${assignment.getDescription()}</p>
+                    <p><strong>Date: </strong> ${assignment.getDate()}</p>
+                    <p><strong>Author: </strong> ${assignment.getUser().getName()}
+                            ${assignment.getUser().getSurname()}</p>
+                </c:forEach>
+            </div>
         </div>
     </div>
 </div>

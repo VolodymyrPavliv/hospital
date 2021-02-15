@@ -92,7 +92,7 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 
                 <div id="addRecord" class="collapse">
                     <form action="/addRecord" method="post">
-                        <input type="hidden" name="patientId" value="${patientId}"/>
+                        <input type="hidden" name="userId" value="${patientId}"/>
                         <label for="doctorId"> Enter doctor id:   </label>
                         <input type="text" id="doctorId" class="input-sm" name="doctorId"/><br><br>
                         <label for="nurseId" > Enter nurse id:       </label>
@@ -115,9 +115,9 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                 <c:forEach items="${records}" var="record">
                     <p><strong>Date: </strong>${record.getEntryDate()}</p>
                     <p><strong>Diagnosis: </strong>${record.getInitialDiagnosis()}</p>
-                    <form action="/record" method="get">
-                        <input type="hidden" name="id" value="${record.getId()}"/>
-                        <button type="submit" name="id" value="${record.getId()}" class="btn-secondary btn-danger">
+                    <form action="/adminRecord" method="get">
+                        <input type="hidden" name="recordId" value="${record.getId()}">
+                        <button type="submit" class="btn-secondary btn-danger">
                             Details</button>
                     </form>
                     <hr>
