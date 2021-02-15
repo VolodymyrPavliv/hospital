@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface AssignmentDAO {
     List<Assignment> findByRecordId(int recordId);
+    boolean addAssignment(Assignment assignment);
 }

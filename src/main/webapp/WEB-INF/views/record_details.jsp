@@ -102,6 +102,17 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                 <h3>Add an assignment</h3></button>
             <div id="doctorAssignment" class="collapse">
                 <form action="/addAssignment" method="post">
+                    <select name="type">
+                        <option disabled selected>Choose assignment type</option>
+                        <option value="Procedure">Procedure</option>
+                        <option value="Medicine">Medicine</option>
+                        <option value="Operation">Operation</option>
+                    </select><br>
+                    <input type="hidden" name="recordId" value="${record.getId()}">
+                    <label for="date1">Enter date: </label>
+                    <input type="date" id="date1" name="date"><br>
+                    <label for="description1">Enter description: </label>
+                    <textarea id ="description1" name="description"></textarea><br>
                     <button type="submit" class="btn-secondary btn-danger">
                         Add</button>
                 </form>
@@ -114,7 +125,17 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                     <h3>Add an assignment</h3></button>
                 <div id="nurseAssignment" class="collapse">
                     <form action="/addAssignment" method="post">
-                        <button type="submit" class="btn-secondary btn-danger">
+                    <select name="type">
+                        <option disabled selected>Choose assignment type</option>
+                        <option value="Procedure">Procedure</option>
+                        <option value="Medicine">Medicine</option>
+                    </select><br>
+                        <input type="hidden" name="recordId" value="${record.getId()}">
+                        <label for="date2">Enter date: </label>
+                        <input type="date" id = "date2" name="date" value="${record.getId()}"><br>
+                        <label for="description2">Enter description: </label>
+                        <textarea id = "description2" name="description"></textarea><br>
+                    <button type="submit" class="btn-secondary btn-danger">
                             Add</button>
                     </form>
                 </div>
@@ -147,6 +168,7 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                     <p><strong>Date: </strong> ${assignment.getDate()}</p>
                     <p><strong>Author: </strong> ${assignment.getUser().getName()}
                             ${assignment.getUser().getSurname()}</p>
+                    <hr>
                 </c:forEach>
             </div>
         </div>

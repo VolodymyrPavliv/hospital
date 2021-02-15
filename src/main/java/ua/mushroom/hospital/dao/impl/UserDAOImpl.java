@@ -107,7 +107,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean addUser(User user) {
-        PreparedStatement statement;
+        PreparedStatement statement = null;
         try (Connection connection = ConnectionPool.getConnection()){
             statement = connection.prepareStatement(SQLConstants.INSERT_USER, Statement.RETURN_GENERATED_KEYS);
 
@@ -121,6 +121,8 @@ public class UserDAOImpl implements UserDAO {
             return true;
         }catch (SQLException e) {
             System.out.println(e.getMessage());
+        }finally {
+            DBUtils.close(statement);
         }
         return false;
     }

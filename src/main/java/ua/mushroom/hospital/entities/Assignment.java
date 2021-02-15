@@ -62,7 +62,7 @@ public class Assignment {
         this.recordId = recordId;
     }
 
-    public User getUser(int userId) {
+    public User getUser() {
         return new UserDAOImpl().findById(userId).get();
     }
 }

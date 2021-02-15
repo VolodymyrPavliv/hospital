@@ -180,6 +180,17 @@
         <url-pattern>/editRecord</url-pattern>
     </servlet-mapping>
 
+    <!--Description AddAssignmentServlet-->
+    <servlet>
+        <servlet-name>AddAssignmentServlet</servlet-name>
+        <servlet-class>ua.mushroom.hospital.servlets.AddAssignmentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddAssignmentServlet</servlet-name>
+        <url-pattern>/addAssignment</url-pattern>
+    </servlet-mapping>
+
     <!--Description DispatcherFilter-->
     <filter>
         <filter-name>DispatcherFilter</filter-name>

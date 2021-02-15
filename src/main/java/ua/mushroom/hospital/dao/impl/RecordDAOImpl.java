@@ -14,7 +14,7 @@ import java.util.Optional;
 public class RecordDAOImpl implements RecordDAO {
     @Override
     public boolean addRecord(Record record) {
-        PreparedStatement statement;
+        PreparedStatement statement = null;
         try (Connection connection = ConnectionPool.getConnection()){
             statement = connection.prepareStatement(SQLConstants.INSERT_RECORD, Statement.RETURN_GENERATED_KEYS);
 
@@ -27,6 +27,8 @@ public class RecordDAOImpl implements RecordDAO {
             return true;
         }catch (SQLException e) {
             System.out.println(e.getMessage());
+        }finally {
+            DBUtils.close(statement);
         }
         return false;
     }

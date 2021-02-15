@@ -31,4 +31,5 @@ public class SQLConstants {
 
     //For AssignmentDAO
     public static final String FIND_ASSIGNMENT_BY_RECORD_ID = "SELECT * FROM assignment WHERE record_id = ?;";
+    public static final String INSERT_ASSIGNMENT = "INSERT INTO assignment(type, description, user_id, date, record_id) VALUE (?, ?, ?, ?, ?);";
 }

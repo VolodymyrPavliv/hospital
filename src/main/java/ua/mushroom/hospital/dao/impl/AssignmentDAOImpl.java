@@ -6,10 +6,7 @@ import ua.mushroom.hospital.db.ConnectionPool;
 import ua.mushroom.hospital.entities.Assignment;
 import ua.mushroom.hospital.utils.DBUtils;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +36,28 @@ public class AssignmentDAOImpl implements AssignmentDAO {
         }
 
         return assignments;
+    }
+
+    @Override
+    public boolean addAssignment(Assignment assignment) {
+        PreparedStatement statement = null;
+        try (Connection connection = ConnectionPool.getConnection()){
+            statement = connection.prepareStatement(SQLConstants.INSERT_ASSIGNMENT, Statement.RETURN_GENERATED_KEYS);
+
+            statement.setString(1, assignment.getType());
+            statement.setString(2, assignment.getDescription());
+            statement.setInt(3,assignment.getUserId());
+            statement.setDate(4, assignment.getDate());
+            statement.setInt(5, assignment.getRecordId());
+
+            statement.execute();
+            return true;
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }finally {
+            DBUtils.close(statement);
+        }
+        return false;
     }
 
     private Assignment mapAssignment(ResultSet resultSet) throws SQLException {
