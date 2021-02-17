@@ -16,5 +16,11 @@ public class PathConstants {
     public static final String NURSE_PAGE = "/nurse";
 
     public static final String LOGIN = "/login";
+    public static final String LOGOUT = "/logout";
     public static final String REGISTER = "/register";
+
+    public static final String EDIT_RECORD = "/editRecord";
+    public static final String ADD_ASSIGNMENT = "/addAssignment";
+    public static final String REGISTER_USER = "/registerUser";
+    public static final String ADD_RECORD = "/addRecord";
 }

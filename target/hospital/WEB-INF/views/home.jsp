@@ -14,9 +14,9 @@
 
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="resources/css/reset.css"> <!-- CSS reset -->
-    <link rel="stylesheet" href="resources/css/style.css"> <!-- Resource style -->
-    <script src="resources/js/modernizr.js"></script> <!-- Modernizr -->
+    <link rel="stylesheet" href="../../resources/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../../resources/css/style.css"> <!-- Resource style -->
+    <script src="../../resources/js/modernizr.js"></script> <!-- Modernizr -->
 
     <title>Home page</title>
 </head>
@@ -49,6 +49,6 @@
     <a href="#0" class="cd-close-menu">Close<span></span></a>
 </nav>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="resources/js/main.js"></script> <!-- Resource jQuery -->
+<script src="../../resources/js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>

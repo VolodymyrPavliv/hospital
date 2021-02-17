@@ -180,8 +180,8 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
             <button data-toggle="collapse" data-target="#assignments" class="btn-secondary btn-link">
                 <h3><fmt:message key="assignments"/></h3></button>
             <div id="assignments" class="collapse">
-                <c:if test="${assignments.size()==0}">
-                    <h3<fmt:message key="noAssignments"/></h3>
+                <c:if test="${assignments.size() == 0}">
+                    <h3><fmt:message key="noAssignments"/></h3>
                 </c:if>
                 <c:forEach items="${assignments}" var="assignment">
                     <p><strong><fmt:message key="type"/> </strong> ${assignment.getType()}</p>

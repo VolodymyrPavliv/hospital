@@ -144,7 +144,7 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
             <select name="type">
                 <option value="0" disabled selected><fmt:message key="chooseSorting"/></option>
                 <option value="3"><fmt:message key="alphabet"/></option>
-                <option value="4"><fmt:message key="category"/></option>
+                <option value="4"><fmt:message key="birthday"/></option>
             </select>
             <button class="btn-secondary btn-danger"type="submit">
                 <strong><fmt:message key="sort"/></strong>
@@ -169,7 +169,7 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
             <select name="type" >
                 <option value="0" disabled selected><fmt:message key="chooseSorting"/></option>
                 <option value="5"><fmt:message key="alphabet"/></option>
-                <option value="6"><fmt:message key="category"/></option>
+                <option value="6"><fmt:message key="birthday"/></option>
             </select>
             <button class="btn-secondary btn-danger" type="submit">
                 <strong><fmt:message key="sort"/></strong>
