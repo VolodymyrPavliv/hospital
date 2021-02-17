@@ -1,7 +1,12 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="resources"/>
 
-<html>
+<html lang="${language}">
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Doctor Page</title>
+    <title><fmt:message key="doctorPage"/></title>
     <!-- Bootstrap Core CSS -->
     <link href="resources/bootstrap.min.css" rel="stylesheet">
 
@@ -32,22 +37,30 @@ background-color: #6df1f6">
                 <span class="sr-only">Toggle navigation</span>
                 Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="<c:url value="/doctor"/>">Hospital</a>
+            <a class="navbar-brand" href="<c:url value="/doctor"/>"><fmt:message key="hospital"/></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="<c:url value="/doctor"/>">Doctor Page</a>
+                    <a href="<c:url value="/doctor"/>"><fmt:message key="doctorPage"/></a>
                 </li>
                 <li>
-                    <a href="<c:url value="#"/>">About us</a>
+                    <a href="<c:url value="#"/>"><fmt:message key="aboutUs"/></a>
                 </li>
                 <li>
-                    <a href="<c:url value="#"/>">Contact us</a>
+                    <a href="<c:url value="#"/>"><fmt:message key="contactUs"/></a>
                 </li>
                 <li>
-                    <a href="<c:url value="/logout"/>">Logout</a>
+                    <a href="<c:url value="/logout"/>"><fmt:message key="logout"/></a>
+                </li>
+                <li>
+                    <form>
+                        <select id="language" name="language" onchange="submit()">
+                            <option  value="en" ${language == 'en' ? 'selected' : ''}>en</option>
+                            <option  value="ua" ${language == 'ua' ? 'selected' : ''}>укр</option>
+                        </select>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -60,9 +73,9 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
-                    <h1>Hospital</h1>
+                    <h1><fmt:message key="hospital"/></h1>
                     <hr class="small">
-                    <span class="subheading">Doctor Page</span>
+                    <span class="subheading"><fmt:message key="doctorPage"/></span>
                 </div>
             </div>
         </div>
@@ -73,27 +86,27 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-preview">
-            <p><strong>Doctor ID: </strong>${doctorInfoId}</p>
-            <p><strong>User ID: </strong>${user.getId()}</p>
-            <p><strong>Name: </strong>${user.getName()} ${user.getSurname()}</p>
-            <p><strong>Category: </strong>${category}</p>
-            <p><strong>Date of birth: </strong>${user.getBirthday()}</p>
-            <p><strong>Email: </strong>${user.getEmail()}</p>
+            <p><strong><fmt:message key="doctorId"/>  </strong>${doctorInfoId}</p>
+            <p><strong><fmt:message key="userId"/>  </strong>${user.getId()}</p>
+            <p><strong><fmt:message key="name"/>  </strong>${user.getName()} ${user.getSurname()}</p>
+            <p><strong><fmt:message key="category"/>:  </strong>${category}</p>
+            <p><strong><fmt:message key="dateOfBirth"/>  </strong>${user.getBirthday()}</p>
+            <p><strong><fmt:message key="email"/>  </strong>${user.getEmail()}</p>
         </div>
         <hr>
         <div class="post-preview">
-            <button data-toggle="collapse" data-target="#records" class="btn-secondary btn-link"><h1>List of records</h1></button>
+            <button data-toggle="collapse" data-target="#records" class="btn-secondary btn-link"><h2><fmt:message key="records"/></h2></button>
             <div id="records" class="collapse">
                 <c:if test="${records.size()==0}">
-                    <h3>There are no records.</h3>
+                    <h3><fmt:message key="noRecords"/></h3>
                 </c:if>
                 <c:forEach items="${records}" var="record">
-                    <p><strong>Date: </strong>${record.getEntryDate()}</p>
-                    <p><strong>Diagnosis: </strong>${record.getInitialDiagnosis()}</p>
+                    <p><strong><fmt:message key="date"/>  </strong>${record.getEntryDate()}</p>
+                    <p><strong><fmt:message key="diagnosis"/>  </strong>${record.getInitialDiagnosis()}</p>
                     <form action="/doctorRecord">
                         <input type="hidden" name="recordId" value="${record.getId()}">
                         <button type="submit" class="btn-secondary btn-danger">
-                            Details</button>
+                            <fmt:message key="details"/></button>
                     </form>
                     <hr>
                 </c:forEach>

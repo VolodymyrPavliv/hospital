@@ -1,7 +1,7 @@
 package ua.mushroom.hospital.servlets;
 
 import ua.mushroom.hospital.constants.PathConstants;
-import ua.mushroom.hospital.dao.impl.RecordDAOImpl;
+import ua.mushroom.hospital.db.dao.impl.RecordDAOImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

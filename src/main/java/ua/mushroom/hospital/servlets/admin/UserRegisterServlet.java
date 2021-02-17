@@ -1,9 +1,9 @@
 package ua.mushroom.hospital.servlets.admin;
 
 import ua.mushroom.hospital.constants.PathConstants;
-import ua.mushroom.hospital.dao.impl.DoctorInfoDAOImpl;
-import ua.mushroom.hospital.dao.impl.RoleDAOImpl;
-import ua.mushroom.hospital.dao.impl.UserDAOImpl;
+import ua.mushroom.hospital.db.dao.impl.DoctorInfoDAOImpl;
+import ua.mushroom.hospital.db.dao.impl.RoleDAOImpl;
+import ua.mushroom.hospital.db.dao.impl.UserDAOImpl;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

@@ -2,9 +2,9 @@ package ua.mushroom.hospital.servlets;
 
 import ua.mushroom.hospital.constants.PathConstants;
 import ua.mushroom.hospital.constants.ViewConstants;
-import ua.mushroom.hospital.dao.impl.RoleDAOImpl;
-import ua.mushroom.hospital.dao.impl.UserDAOImpl;
-import ua.mushroom.hospital.entities.User;
+import ua.mushroom.hospital.db.dao.impl.RoleDAOImpl;
+import ua.mushroom.hospital.db.dao.impl.UserDAOImpl;
+import ua.mushroom.hospital.db.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

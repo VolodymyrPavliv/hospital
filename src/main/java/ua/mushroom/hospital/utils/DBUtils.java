@@ -1,6 +1,6 @@
 package ua.mushroom.hospital.utils;
 
-import ua.mushroom.hospital.entities.User;
+import ua.mushroom.hospital.db.entity.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

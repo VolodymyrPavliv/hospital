@@ -1,16 +1,15 @@
 package ua.mushroom.hospital.servlets.admin;
 
 import ua.mushroom.hospital.constants.ViewConstants;
-import ua.mushroom.hospital.dao.impl.DoctorInfoDAOImpl;
-import ua.mushroom.hospital.dao.impl.RoleDAOImpl;
-import ua.mushroom.hospital.dao.impl.UserDAOImpl;
-import ua.mushroom.hospital.entities.User;
+import ua.mushroom.hospital.db.dao.impl.DoctorInfoDAOImpl;
+import ua.mushroom.hospital.db.dao.impl.RoleDAOImpl;
+import ua.mushroom.hospital.db.dao.impl.UserDAOImpl;
+import ua.mushroom.hospital.db.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;

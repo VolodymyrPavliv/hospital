@@ -1,7 +1,12 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="resources"/>
 
-<html>
+<html lang="${language}">
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Page</title>
+    <title><fmt:message key="adminPage"/> </title>
     <!-- Bootstrap Core CSS -->
     <link href="resources/bootstrap.min.css" rel="stylesheet">
 
@@ -30,22 +35,29 @@
                 <span class="sr-only">Toggle navigation</span>
                 Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="<c:url value="/admin"/>">Hospital</a>
+            <a class="navbar-brand" href="<c:url value="/admin"/>"><fmt:message key="hospital"/></a>
         </div>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="<c:url value="/admin"/>">Admin</a>
+                    <a href="<c:url value="/admin"/>"><fmt:message key="adminPage"/></a>
                 </li>
                 <li>
-                    <a href="<c:url value="#"/>">About us</a>
+                    <a href="<c:url value="#"/>"><fmt:message key="aboutUs"/></a>
                 </li>
                 <li>
-                    <a href="<c:url value="#"/>">Contact us</a>
+                    <a href="<c:url value="#"/>"><fmt:message key="contactUs"/></a>
                 </li>
                 <li>
-                    <a href="<c:url value="/logout"/>">Logout</a>
+                    <a href="<c:url value="/logout"/>"><fmt:message key="logout"/></a>
+                </li>
+                <li>
+                    <form>
+                        <select id="language" name="language" onchange="submit()">
+                            <option  value="en" ${language == 'en' ? 'selected' : ''}>en</option>
+                            <option  value="ua" ${language == 'ua' ? 'selected' : ''}>укр</option>
+                        </select>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -58,9 +70,9 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
-                    <h1>Hospital</h1>
+                    <h1><fmt:message key="hospital"/></h1>
                     <hr class="small">
-                    <span class="subheading">Admin Page</span>
+                    <span class="subheading"><fmt:message key="adminPage"/></span>
                 </div>
             </div>
         </div>
@@ -71,100 +83,102 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <div class="container">
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <div class="post-preview">
-        <button data-toggle="collapse" data-target="#unregisteredUsers" class="btn-secondary btn-link"><h1>List of unregistered users</h1></button>
+        <button data-toggle="collapse" data-target="#unregisteredUsers" class="btn-secondary btn-link">
+            <h2><fmt:message key="unregisteredUsers"/></h2></button>
 
         <div id="unregisteredUsers" class="collapse">
             <c:if test="${unregisteredUsers.size()==0}">
-                <h3>There are no unregistered users.</h3>
+                <h3><fmt:message key="noUnregisteredUsers"/></h3>
             </c:if>
         <c:forEach items="${unregisteredUsers}" var="user">
             <br>
-            <strong>User #${user.id}:</strong>  ${user.getName()} ${user.getSurname()}<br>
+            <strong><fmt:message key="userN"/>${user.id}:</strong>  ${user.getName()} ${user.getSurname()}<br>
             <br>
             <form action="/registerUser" method="post">
                 <input type="hidden" name="doctorId" value="${user.getId()}"/>
                 <input type="text" name="category" placeholder="Enter category"/>
-                <button class="btn-secondary btn-danger" type="submit">Register as a Doctor</button>
+                <button class="btn-secondary btn-danger" type="submit"><fmt:message key="regAsDoc"/></button>
             </form>
             <br>
             <form action="/registerUser" method="post">
-                <button class="btn-secondary btn-danger" type="submit" name ="nurseId" value="${user.getId()}" >Register as a Nurse</button>
-                <button class="btn-secondary btn-danger" type="submit" name ="patientId" value="${user.getId()}" >Register as a Patient</button>
+                <button class="btn-secondary btn-danger" type="submit" name ="nurseId" value="${user.getId()}" ><fmt:message key="regAsNurse"/></button>
+                <button class="btn-secondary btn-danger" type="submit" name ="patientId" value="${user.getId()}"><fmt:message key="regAsPatient"/></button>
             </form>
         </c:forEach>
         </div>
     </div>
     <hr>
     <div class="post-preview">
-        <button data-toggle="collapse" data-target="#doctors" class="btn-secondary btn-link"><h1>List of doctors</h1></button>
+        <button data-toggle="collapse" data-target="#doctors" class="btn-secondary btn-link"><h2><fmt:message key="doctors"/></h2></button>
 
         <div id="doctors" class="collapse">
-        <form action="/admin">
+            <c:if test="${doctors.size()==0}">
+                <h3><fmt:message key="noDoc"/></h3>
+            </c:if>
+            <form action="/admin">
             <select name="type">
-                <option value="0" disabled selected>Choose sorting type</option>
-                <option value="1">Alphabet</option>
-                <option value="2">Category</option>
+                <option value="0" disabled selected><fmt:message key="chooseSorting"/></option>
+                <option value="1"><fmt:message key="alphabet"/></option>
+                <option value="2"><fmt:message key="category"/></option>
             </select>
             <button type="submit" class="btn-secondary btn-danger">
-                <strong>sort</strong>
+                <strong><fmt:message key="sort"/></strong>
             </button>
         </form>
-            <c:if test="${doctors.size()==0}">
-                <h3>There are no doctors.</h3>
-            </c:if>
         <c:forEach items="${doctors}" var="user">
             <form action="/user">
                 <button type="submit" name="userId" value="${user.getId()}" class="btn-danger btn-link">
-                <strong>User #${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
+                <strong><fmt:message key="userN"/>${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
             </form>
         </c:forEach>
         </div>
     </div>
     <hr>
     <div class="post-preview">
-        <button data-toggle="collapse" data-target="#nurses" class="btn-secondary btn-link"><h1>List of nurses</h1></button>
+        <button data-toggle="collapse" data-target="#nurses" class="btn-secondary btn-link"><h2><fmt:message key="nurses"/></h2></button>
         <div id="nurses" class="collapse">
-        <form action="/admin">
+            <c:if test="${nurses.size()==0}">
+                <h3><fmt:message key="noNurses"/></h3>
+            </c:if>
+            <form action="/admin">
             <select name="type">
-                <option value="0" disabled selected>Choose sorting type</option>
-                <option value="3">Alphabet</option>
-                <option value="4">Birthday</option>
+                <option value="0" disabled selected><fmt:message key="chooseSorting"/></option>
+                <option value="3"><fmt:message key="alphabet"/></option>
+                <option value="4"><fmt:message key="category"/></option>
             </select>
             <button class="btn-secondary btn-danger"type="submit">
-                <strong>sort</strong>
+                <strong><fmt:message key="sort"/></strong>
             </button>
         </form>
-            <c:if test="${nurses.size()==0}">
-                <h3>There are no nurses.</h3>
-            </c:if>
         <c:forEach items="${nurses}" var="user">
             <form action="/user">
                 <button class="btn-danger btn-link" name="userId" value="${user.getId()}" type="submit">
-                    <strong>User #${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
+                    <strong><fmt:message key="userN"/>${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
             </form>
         </c:forEach>
         </div>
     </div>
     <hr>
     <div class="post-preview">
-        <button data-toggle="collapse" data-target="#patients" class="btn-secondary btn-link"><h1>List of patients</h1></button>
-        <div id="patients" class="collapse"><form action="/admin">
+        <button data-toggle="collapse" data-target="#patients" class="btn-secondary btn-link"><h2><fmt:message key="patients"/></h2></button>
+        <div id="patients" class="collapse">
+            <c:if test="${patients.size()==0}">
+                <h3><fmt:message key="noPatients"/></h3>
+            </c:if>
+            <form action="/admin">
             <select name="type" >
-                <option value="0" disabled selected>Choose sorting type</option>
-                <option value="5">Alphabet</option>
-                <option value="6">Birthday</option>
+                <option value="0" disabled selected><fmt:message key="chooseSorting"/></option>
+                <option value="5"><fmt:message key="alphabet"/></option>
+                <option value="6"><fmt:message key="category"/></option>
             </select>
             <button class="btn-secondary btn-danger" type="submit">
-                <strong>sort</strong>
+                <strong><fmt:message key="sort"/></strong>
             </button>
         </form>
-            <c:if test="${patients.size()==0}">
-                <h3>There are no patients.</h3>
-            </c:if>
         <c:forEach items="${patients}" var="user">
             <form action="/user">
                 <button class="btn-danger btn-link" type="submit" name="userId" value="${user.getId()}">
-                    <strong>User #${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
+                    <strong><fmt:message key="userN"/>${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
             </form>
         </c:forEach>
         </div>

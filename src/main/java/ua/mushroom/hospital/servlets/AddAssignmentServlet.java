@@ -1,10 +1,8 @@
 package ua.mushroom.hospital.servlets;
 
 import ua.mushroom.hospital.constants.PathConstants;
-import ua.mushroom.hospital.dao.impl.AssignmentDAOImpl;
-import ua.mushroom.hospital.dao.impl.UserDAOImpl;
-import ua.mushroom.hospital.entities.Assignment;
-import ua.mushroom.hospital.entities.User;
+import ua.mushroom.hospital.db.dao.impl.AssignmentDAOImpl;
+import ua.mushroom.hospital.db.entity.Assignment;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
