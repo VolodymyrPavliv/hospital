@@ -2,9 +2,9 @@ package ua.mushroom.hospital.command.container;
 
 import ua.mushroom.hospital.command.*;
 import ua.mushroom.hospital.command.admin.AddRecordCommand;
-import ua.mushroom.hospital.command.admin.UserDetailsCommand;
-import ua.mushroom.hospital.command.admin.UserListCommand;
 import ua.mushroom.hospital.command.admin.UserRegisterCommand;
+import ua.mushroom.hospital.command.doctor.AddFinalDiagnosisCommand;
+import ua.mushroom.hospital.command.doctor.AddInitialDiagnosisCommand;
 import ua.mushroom.hospital.constants.PathConstants;
 
 import java.util.HashMap;
@@ -17,7 +17,8 @@ public class PostCommandContainer implements CommandContainer {
         commands.put(PathConstants.HOME_PAGE, new HomeCommand());
         commands.put(PathConstants.LOGIN, new LoginCommand());
         commands.put(PathConstants.REGISTER, new RegisterCommand());
-        commands.put(PathConstants.EDIT_RECORD, new EditRecordCommand());
+        commands.put(PathConstants.ADD_INIT_DIAGNOSIS, new AddInitialDiagnosisCommand());
+        commands.put(PathConstants.ADD_FINAL_DIAGNOSIS, new AddFinalDiagnosisCommand());
         commands.put(PathConstants.ADD_ASSIGNMENT, new AddAssignmentCommand());
         commands.put(PathConstants.REGISTER_USER, new UserRegisterCommand());
         commands.put(PathConstants.ADD_RECORD, new AddRecordCommand());

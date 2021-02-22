@@ -18,4 +18,22 @@ public class RecordValidator {
         }
         return true;
     }
+
+    public boolean addInitDiagnosis(String initialDiagnosis, HttpServletRequest req) {
+        if(initialDiagnosis.isEmpty()) {
+            req.setAttribute("emptyInitialDiagnosis", true);
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean addFinalDiagnosis(String finalDiagnosis, Date date, HttpServletRequest req) {
+        if(finalDiagnosis.isEmpty() || date == null) {
+            req.setAttribute("emptyFinalDiagnosis", true);
+            return false;
+        }
+
+        return true;
+    }
 }

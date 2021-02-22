@@ -147,6 +147,7 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                     <h3><fmt:message key="noAssignments"/></h3>
                 </c:if>
                 <c:forEach items="${assignments}" var="assignment">
+                    <p><strong>ID: </strong> ${assignment.getId()}</p>
                     <p><strong><fmt:message key="type"/> </strong> ${assignment.getType()}</p>
                     <p class="text-xl-center"><strong><fmt:message key="description"/></strong></p>
                     <p>${assignment.getDescription()}</p>

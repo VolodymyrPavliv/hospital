@@ -32,6 +32,8 @@ public class DispatcherFilter implements Filter {
         PROTECTED_URIS.put(PathConstants.DOCTOR_RECORDS_PAGE,"DOCTOR");
         PROTECTED_URIS.put(PathConstants.DOCTOR_RECORD_PAGE,"DOCTOR");
         PROTECTED_URIS.put(PathConstants.DOCTOR_ASSIGNMENTS_PAGE,"DOCTOR");
+        PROTECTED_URIS.put(PathConstants.ADD_INIT_DIAGNOSIS,"DOCTOR");
+        PROTECTED_URIS.put(PathConstants.ADD_FINAL_DIAGNOSIS,"DOCTOR");
         PROTECTED_URIS.put(PathConstants.NURSE_PAGE,"NURSE");
         PROTECTED_URIS.put(PathConstants.NURSE_RECORD_PAGE,"NURSE");
         PROTECTED_URIS.put(PathConstants.NURSE_RECORDS_PAGE,"NURSE");

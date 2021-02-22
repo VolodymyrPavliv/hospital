@@ -101,7 +101,7 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
             <button data-toggle="collapse" data-target="#initialDiagnosis" class="btn-secondary btn-link">
                 <h3><fmt:message key="addInitialDiagnosis"/></h3></button>
             <div id="initialDiagnosis" class="collapse">
-                <form action="/editRecord" method="post">
+                <form action="/addInitDiagnosis" method="post">
                     <input type="hidden" name="id" value="${record.getId()}">
                     <textarea name="initialDiagnosis"></textarea>
                     <button type="submit" class="btn-secondary btn-danger">
@@ -112,11 +112,11 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
             <button data-toggle="collapse" data-target="#finalDiagnosis" class="btn-secondary btn-link">
                 <h3><fmt:message key="addFinalDiagnosis"/></h3></button>
             <div id="finalDiagnosis" class="collapse">
-                <form action="/editRecord" method="post">
-                    <input type="hidden" name="id" value="${record.getId()}">
-                    <textarea name="finalDiagnosis"></textarea><br><br>
+                <form action="/addFinalDiagnosis" method="post">
                     <label for="discharge"><fmt:message key="dischargeDate"/></label>
                     <input type="date" name="dischargeDate" id="discharge"><br>
+                    <input type="hidden" name="id" value="${record.getId()}">
+                    <textarea name="finalDiagnosis"></textarea><br><br>
                     <button type="submit" class="btn-secondary btn-danger">
                         <fmt:message key="add"/></button>
                 </form>
