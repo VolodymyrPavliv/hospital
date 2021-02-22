@@ -6,9 +6,10 @@ public class SQLConstants {
     public final static String FIND_USER_BY_ID = "SELECT * FROM user WHERE id =?";
     public final static String FIND_USER_BY_EMAIL_AND_PASS = "SELECT * FROM user WHERE email = ? AND password = ?;";
     public final static String INSERT_USER = "INSERT INTO user(name, surname, email, password, birthday)" +
-            "VALUES (?, ?, ?,?, ?);";
+            "VALUES (?, ?, ?, ?, ?);";
     public static final String ADD_ROLE_ID = "UPDATE user SET role_id = (?) WHERE id = ?;";
     public static final String FIND_ALL_USERS_BY_ROLE_ID = "SELECT * FROM user WHERE role_id = ?;";
+    public static final String FIND_USER_BY_EMAIL = "SELECT * FROM user WHERE email = ?;";
 
     //For RoleDAO
     public static final String FIND_ROLE_BY_ID = "SELECT * FROM role WHERE id = ?;";

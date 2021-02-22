@@ -11,4 +11,8 @@ public class ViewConstants {
     public static final String NURSE_PAGE = "/WEB-INF/views/nurse_page.jsp";
     public static final String USER_DETAILS_VIEW = "/WEB-INF/views/user_details.jsp";
     public static final String RECORD_DETAILS_VIEW = "/WEB-INF/views/record_details.jsp";
+    public static final String ADD_RECORD_VIEW = "/WEB-INF/views/addRecord.jsp";
+    public static final String DOCTORS_VIEW = "/WEB-INF/views/doctors.jsp";
+    public static final String PATIENTS_VIEW = "/WEB-INF/views/patients.jsp";
+    public static final String NURSES_VIEW = "/WEB-INF/views/nurses.jsp";
 }

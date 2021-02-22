@@ -106,6 +106,31 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public Optional<User> findByEmail(String email) {
+        User user = new User();
+        ResultSet resultSet = null;
+        PreparedStatement statement = null;
+
+        try (Connection connection = ConnectionPool.getConnection()) {
+            statement = connection.prepareStatement(SQLConstants.FIND_USER_BY_EMAIL);
+
+            statement.setString(1, email);
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                user = DBUtils.mapUser(resultSet);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            DBUtils.close(resultSet);
+            DBUtils.close(statement);
+        }
+
+        return Optional.of(user);
+    }
+
+    @Override
     public boolean addUser(User user) {
         PreparedStatement statement = null;
         try (Connection connection = ConnectionPool.getConnection()){

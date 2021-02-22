@@ -25,6 +25,7 @@ public class DispatcherFilter implements Filter {
         PROTECTED_URIS.put(PathConstants.ADMIN_PAGE,"ADMIN");
         PROTECTED_URIS.put(PathConstants.USER_DETAILS_PAGE,"ADMIN");
         PROTECTED_URIS.put(PathConstants.ADMIN_RECORD_PAGE,"ADMIN");
+        PROTECTED_URIS.put(PathConstants.USER_LIST_PAGE,"ADMIN");
         PROTECTED_URIS.put(PathConstants.DOCTOR_PAGE,"DOCTOR");
         PROTECTED_URIS.put(PathConstants.DOCTOR_RECORD_PAGE,"DOCTOR");
         PROTECTED_URIS.put(PathConstants.NURSE_PAGE,"NURSE");

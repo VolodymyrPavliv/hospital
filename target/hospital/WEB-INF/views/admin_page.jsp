@@ -83,6 +83,8 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <div class="container">
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <div class="post-preview">
+        <h2 class="text-center"><fmt:message key="userLists"/></h2>
+        <hr>
         <button data-toggle="collapse" data-target="#unregisteredUsers" class="btn-secondary btn-link">
             <h2><fmt:message key="unregisteredUsers"/></h2></button>
 
@@ -95,93 +97,43 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
             <strong><fmt:message key="userN"/>${user.id}:</strong>  ${user.getName()} ${user.getSurname()}<br>
             <br>
             <form action="/registerUser" method="post">
+                <c:if test="${emptyCategory}">
+                    <p class="text-danger"><fmt:message key="emptyCategory"/></p>
+                </c:if>
                 <input type="hidden" name="doctorId" value="${user.getId()}"/>
-                <input type="text" name="category" placeholder="Enter category"/>
+                <label for="selectCategory"><fmt:message key="chooseCategory"/>:</label>
+                <select name="category" id = selectCategory>
+                    <option value="<fmt:message key='pediatrician'/>"><fmt:message key="pediatrician"/></option>
+                    <option value="<fmt:message key='therapist'/>"><fmt:message key="therapist"/></option>
+                    <option value="<fmt:message key='surgeon'/>"><fmt:message key="surgeon"/></option>
+                    <option value="<fmt:message key='traumatologist'/>"><fmt:message key="traumatologist"/></option>
+                </select>
                 <button class="btn-secondary btn-danger" type="submit"><fmt:message key="regAsDoc"/></button>
-            </form>
-            <br>
-            <form action="/registerUser" method="post">
-                <button class="btn-secondary btn-danger" type="submit" name ="nurseId" value="${user.getId()}" ><fmt:message key="regAsNurse"/></button>
+                | <button class="btn-secondary btn-danger" type="submit" name ="nurseId" value="${user.getId()}"><fmt:message key="regAsNurse"/></button>
                 <button class="btn-secondary btn-danger" type="submit" name ="patientId" value="${user.getId()}"><fmt:message key="regAsPatient"/></button>
             </form>
+            <hr>
         </c:forEach>
         </div>
+        <br>
     </div>
-    <hr>
     <div class="post-preview">
-        <button data-toggle="collapse" data-target="#doctors" class="btn-secondary btn-link"><h2><fmt:message key="doctors"/></h2></button>
-
-        <div id="doctors" class="collapse">
-            <c:if test="${doctors.size()==0}">
-                <h3><fmt:message key="noDoc"/></h3>
-            </c:if>
-            <form action="/admin">
-            <select name="type">
-                <option value="0" disabled selected><fmt:message key="chooseSorting"/></option>
-                <option value="1"><fmt:message key="alphabet"/></option>
-                <option value="2"><fmt:message key="category"/></option>
-            </select>
-            <button type="submit" class="btn-secondary btn-danger">
-                <strong><fmt:message key="sort"/></strong>
-            </button>
+        <form action="/userList">
+            <button name="listType" value="doctorList" class="btn-secondary btn-link">
+                <h2><fmt:message key="doctors"/></h2></button>
         </form>
-        <c:forEach items="${doctors}" var="user">
-            <form action="/user">
-                <button type="submit" name="userId" value="${user.getId()}" class="btn-danger btn-link">
-                <strong><fmt:message key="userN"/>${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
-            </form>
-        </c:forEach>
-        </div>
     </div>
-    <hr>
     <div class="post-preview">
-        <button data-toggle="collapse" data-target="#nurses" class="btn-secondary btn-link"><h2><fmt:message key="nurses"/></h2></button>
-        <div id="nurses" class="collapse">
-            <c:if test="${nurses.size()==0}">
-                <h3><fmt:message key="noNurses"/></h3>
-            </c:if>
-            <form action="/admin">
-            <select name="type">
-                <option value="0" disabled selected><fmt:message key="chooseSorting"/></option>
-                <option value="3"><fmt:message key="alphabet"/></option>
-                <option value="4"><fmt:message key="birthday"/></option>
-            </select>
-            <button class="btn-secondary btn-danger"type="submit">
-                <strong><fmt:message key="sort"/></strong>
-            </button>
+        <form action="/userList">
+            <button name="listType" value="nurseList" class="btn-secondary btn-link">
+                <h2><fmt:message key="nurses"/></h2></button>
         </form>
-        <c:forEach items="${nurses}" var="user">
-            <form action="/user">
-                <button class="btn-danger btn-link" name="userId" value="${user.getId()}" type="submit">
-                    <strong><fmt:message key="userN"/>${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
-            </form>
-        </c:forEach>
-        </div>
     </div>
-    <hr>
     <div class="post-preview">
-        <button data-toggle="collapse" data-target="#patients" class="btn-secondary btn-link"><h2><fmt:message key="patients"/></h2></button>
-        <div id="patients" class="collapse">
-            <c:if test="${patients.size()==0}">
-                <h3><fmt:message key="noPatients"/></h3>
-            </c:if>
-            <form action="/admin">
-            <select name="type" >
-                <option value="0" disabled selected><fmt:message key="chooseSorting"/></option>
-                <option value="5"><fmt:message key="alphabet"/></option>
-                <option value="6"><fmt:message key="birthday"/></option>
-            </select>
-            <button class="btn-secondary btn-danger" type="submit">
-                <strong><fmt:message key="sort"/></strong>
-            </button>
+        <form action="/userList">
+            <button name="listType" value="patientList" class="btn-secondary btn-link">
+                <h2><fmt:message key="patients"/></h2></button>
         </form>
-        <c:forEach items="${patients}" var="user">
-            <form action="/user">
-                <button class="btn-danger btn-link" type="submit" name="userId" value="${user.getId()}">
-                    <strong><fmt:message key="userN"/>${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
-            </form>
-        </c:forEach>
-        </div>
     </div>
     </div>
 </div>

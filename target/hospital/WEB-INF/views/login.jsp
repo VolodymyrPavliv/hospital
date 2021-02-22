@@ -18,8 +18,14 @@
         <form action="/login" method="post" class="form-signin">
             <h1 class="form-heading"><fmt:message key="login"/></h1>
             <div class="form-group">
-                <c:if test="${not_registered_yet!=null}">
-                <h3 class="text-left text-info"><fmt:message key="notRegisteredYet"/> </h3>
+                <c:if test="${notRegisteredYet}">
+                    <p class="text-left text-info"><fmt:message key="notRegisteredYet"/> </p>
+                </c:if>
+                <c:if test="${loginIncorrectCredentials}">
+                    <p class="text-danger"><fmt:message key="loginIncorrectCredentials" /></p>
+                </c:if>
+                <c:if test="${emptyCredentials}">
+                    <p class="text-danger"><fmt:message key="emptyCredentials" /></p>
                 </c:if>
                 <label for="email"><strong><fmt:message key="email"/></strong> </label>
                 <input id = "email" class="form-control" name="email" type="email" placeholder="<fmt:message key='enterEmail'/> "/><br>

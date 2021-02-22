@@ -1,5 +1,7 @@
 package ua.mushroom.hospital.db.entity;
 
+import ua.mushroom.hospital.db.dao.impl.DoctorInfoDAOImpl;
+
 import java.sql.Date;
 
 public class User {
@@ -10,6 +12,7 @@ public class User {
     private String password;
     private Date birthday;
     private int role_id;
+    private String category;
 
     public User() {}
 
@@ -67,6 +70,10 @@ public class User {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public DoctorInfo getDoctorInfo() {
+        return new DoctorInfoDAOImpl().findByUserId(id).orElse(null);
     }
 
     @Override

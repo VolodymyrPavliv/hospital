@@ -23,4 +23,5 @@ public class PathConstants {
     public static final String ADD_ASSIGNMENT = "/addAssignment";
     public static final String REGISTER_USER = "/registerUser";
     public static final String ADD_RECORD = "/addRecord";
+    public static final String USER_LIST_PAGE = "/userList";
 }

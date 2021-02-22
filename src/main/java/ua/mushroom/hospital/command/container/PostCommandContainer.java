@@ -3,6 +3,7 @@ package ua.mushroom.hospital.command.container;
 import ua.mushroom.hospital.command.*;
 import ua.mushroom.hospital.command.admin.AddRecordCommand;
 import ua.mushroom.hospital.command.admin.UserDetailsCommand;
+import ua.mushroom.hospital.command.admin.UserListCommand;
 import ua.mushroom.hospital.command.admin.UserRegisterCommand;
 import ua.mushroom.hospital.constants.PathConstants;
 

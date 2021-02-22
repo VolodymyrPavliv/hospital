@@ -7,6 +7,7 @@ import ua.mushroom.hospital.command.LogoutCommand;
 import ua.mushroom.hospital.command.admin.AdminCommand;
 import ua.mushroom.hospital.command.admin.AdminRecordCommand;
 import ua.mushroom.hospital.command.admin.UserDetailsCommand;
+import ua.mushroom.hospital.command.admin.UserListCommand;
 import ua.mushroom.hospital.command.doctor.DoctorCommand;
 import ua.mushroom.hospital.command.doctor.DoctorRecordCommand;
 import ua.mushroom.hospital.command.nurse.NurseCommand;
@@ -29,8 +30,10 @@ public class GetCommandContainer implements CommandContainer{
     public GetCommandContainer() {
         commands.put(PathConstants.LOGIN, (req, res) -> forward(req, res, ViewConstants.LOGIN_VIEW));
         commands.put(PathConstants.REGISTER, (req, res) -> forward(req, res, ViewConstants.REGISTER_VIEW));
+        commands.put(PathConstants.ADD_RECORD, (req, resp) -> forward(req, resp, ViewConstants.ADD_RECORD_VIEW));
         commands.put(PathConstants.HOME_PAGE, new HomeCommand());
         commands.put(PathConstants.ADMIN_PAGE, new AdminCommand());
+        commands.put(PathConstants.USER_LIST_PAGE, new UserListCommand());
         commands.put(PathConstants.DOCTOR_PAGE, new DoctorCommand());
         commands.put(PathConstants.NURSE_PAGE, new NurseCommand());
         commands.put(PathConstants.PATIENT_PAGE, new PatientCommand());

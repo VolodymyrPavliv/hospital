@@ -2,6 +2,7 @@ package ua.mushroom.hospital.command.admin;
 
 import ua.mushroom.hospital.command.Command;
 import ua.mushroom.hospital.constants.PathConstants;
+import ua.mushroom.hospital.constants.ViewConstants;
 import ua.mushroom.hospital.db.dao.impl.DoctorInfoDAOImpl;
 import ua.mushroom.hospital.db.dao.impl.RoleDAOImpl;
 import ua.mushroom.hospital.db.dao.impl.UserDAOImpl;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class UserRegisterCommand implements Command {
+
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDAOImpl userDAO = new UserDAOImpl();
