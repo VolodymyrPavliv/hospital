@@ -78,7 +78,9 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-preview">
-                    <form action="/addRecord" method="post">
+            <h2 class="text-center"><fmt:message key="addRecord"/></h2>
+            <hr>
+            <form action="/addRecord" method="post">
                         <c:if test="${emptyCredentials}">
                             <p class="text-danger"><fmt:message key="emptyCredentials" /></p>
                         </c:if>

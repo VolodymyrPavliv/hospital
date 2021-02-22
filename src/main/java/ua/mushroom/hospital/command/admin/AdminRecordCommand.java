@@ -23,7 +23,6 @@ public class AdminRecordCommand implements Command {
         RecordDAOImpl recordDAO = new RecordDAOImpl();
         UserDAOImpl userDAO = new UserDAOImpl();
         DoctorInfoDAOImpl doctorInfoDAO = new DoctorInfoDAOImpl();
-        AssignmentDAOImpl assignmentDAO = new AssignmentDAOImpl();
 
         int recordId = Integer.parseInt(req.getParameter("recordId"));
 
@@ -32,14 +31,12 @@ public class AdminRecordCommand implements Command {
         DoctorInfo doctorInfo = doctorInfoDAO.findId(record.getDoctorId()).get();
         User doctor = userDAO.findById(doctorInfo.getUserId()).get();
         User nurse = userDAO.findById(record.getNurseId()).get();
-        List<Assignment> assignments = assignmentDAO.findByRecordId(recordId);
 
         req.setAttribute("record", record);
         req.setAttribute("patient", patient);
         req.setAttribute("doctorInfo", doctorInfo);
         req.setAttribute("doctor", doctor);
         req.setAttribute("nurse", nurse);
-        req.setAttribute("assignments", assignments);
         req.setAttribute("isAdmin", true);
 
         req.getRequestDispatcher(ViewConstants.RECORD_DETAILS_VIEW).forward(req, resp);

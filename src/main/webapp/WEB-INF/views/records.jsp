@@ -42,9 +42,26 @@ background-color: #6df1f6">
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="<c:url value="/admin"/>"><fmt:message key="adminPage"/></a>
-                </li>
+                <c:if test="${isAdmin != null}">
+                    <li>
+                        <a href="<c:url value="/admin"/>"><fmt:message key="adminPage"/></a>
+                    </li>
+                </c:if>
+                <c:if test="${isPatient != null}">
+                    <li>
+                        <a href="<c:url value="/patient"/>"><fmt:message key="patientPage"/></a>
+                    </li>
+                </c:if>
+                <c:if test="${isDoctor != null}">
+                    <li>
+                        <a href="<c:url value="/doctor"/>"><fmt:message key="doctorPage"/></a>
+                    </li>
+                </c:if>
+                <c:if test="${isNurse != null}">
+                    <li>
+                        <a href="<c:url value="/nurse"/>"><fmt:message key="nursePage"/></a>
+                    </li>
+                </c:if>
                 <li>
                     <a href="<c:url value="#"/>"><fmt:message key="aboutUs"/></a>
                 </li>
@@ -67,7 +84,7 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                 <div class="site-heading">
                     <h1><fmt:message key="hospital"/></h1>
                     <hr class="small">
-                    <span class="subheading"><fmt:message key="userDetailsPage"/></span>
+                    <span class="subheading"><fmt:message key="recordList"/></span>
                 </div>
             </div>
         </div>
@@ -77,14 +94,16 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <!-- Main Content -->
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <c:if test="${patientId!=null}">
-            <hr>
+        <h2 class="text-center"><fmt:message key="recordList"/></h2>
+        <hr>
+        <c:if test="${userRole.equals('PATIENT')}">
             <div class="post-preview">
                 <button data-toggle="collapse" data-target="#addRecord" class="btn-secondary btn-link"><h2><fmt:message key="addRecord"/></h2></button>
 
                 <div id="addRecord" class="collapse">
                     <form action="/addRecord" method="post">
-                        <input type="hidden" name="userId" value="${patientId}"/>
+                        <input type="hidden" name="userId" value="${userId}"/>
+                        <input type="hidden" name="role" value="${role}"/>
                         <label for="doctorId"> <fmt:message key="enterDoctorId"/>   </label>
                         <input type="text" id="doctorId" class="input-sm" name="doctorId"/><br><br>
                         <label for="nurseId" > <fmt:message key="enterNurseId"/>       </label>
@@ -96,8 +115,8 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                     </form>
                 </div>
             </div>
+            <hr>
         </c:if>
-        <hr>
         <div class="post-preview">
                 <c:if test="${records.size()==0}">
                     <h3><fmt:message key="noRecords"/></h3>
@@ -105,11 +124,34 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                 <c:forEach items="${records}" var="record">
                     <p><strong><fmt:message key="entryDate"/> </strong>${record.getEntryDate()}</p>
                     <p><strong><fmt:message key="diagnosis"/> </strong>${record.getInitialDiagnosis()}</p>
+                    <c:if test="${isDoctor}">
+                        <form action="/doctorRecord" method="get">
+                            <input type="hidden" name="recordId" value="${record.getId()}">
+                            <button type="submit" class="btn-secondary btn-danger">
+                                <fmt:message key="details"/></button>
+                        </form>
+                    </c:if>
+                    <c:if test="${isAdmin}">
                     <form action="/adminRecord" method="get">
                         <input type="hidden" name="recordId" value="${record.getId()}">
                         <button type="submit" class="btn-secondary btn-danger">
                             <fmt:message key="details"/></button>
                     </form>
+                    </c:if>
+                    <c:if test="${isNurse}">
+                        <form action="/nurseRecord" method="get">
+                            <input type="hidden" name="recordId" value="${record.getId()}">
+                            <button type="submit" class="btn-secondary btn-danger">
+                                <fmt:message key="details"/></button>
+                        </form>
+                    </c:if>
+                    <c:if test="${isPatient}">
+                        <form action="/patientRecord" method="get">
+                            <input type="hidden" name="recordId" value="${record.getId()}">
+                            <button type="submit" class="btn-secondary btn-danger">
+                                <fmt:message key="details"/></button>
+                        </form>
+                    </c:if>
                     <hr>
                 </c:forEach>
             </div>

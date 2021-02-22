@@ -17,14 +17,12 @@ public class NurseCommand implements Command {
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
-        RecordDAOImpl recordDAO = new RecordDAOImpl();
         UserDAOImpl userDAO = new UserDAOImpl();
 
         int userId = Integer.parseInt(session.getAttribute("userId").toString());
         User nurse = userDAO.findById(userId).get();
 
         req.setAttribute("user", nurse);
-        req.setAttribute("records", recordDAO.findByNurseId(nurse.getId()));
 
         req.getRequestDispatcher(ViewConstants.NURSE_PAGE).forward(req, resp);
     }

@@ -97,9 +97,6 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
             <strong><fmt:message key="userN"/>${user.id}:</strong>  ${user.getName()} ${user.getSurname()}<br>
             <br>
             <form action="/registerUser" method="post">
-                <c:if test="${emptyCategory}">
-                    <p class="text-danger"><fmt:message key="emptyCategory"/></p>
-                </c:if>
                 <input type="hidden" name="doctorId" value="${user.getId()}"/>
                 <label for="selectCategory"><fmt:message key="chooseCategory"/>:</label>
                 <select name="category" id = selectCategory>

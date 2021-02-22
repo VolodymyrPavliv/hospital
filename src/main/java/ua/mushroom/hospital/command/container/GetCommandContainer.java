@@ -4,16 +4,19 @@ import ua.mushroom.hospital.command.Command;
 import ua.mushroom.hospital.command.HomeCommand;
 import ua.mushroom.hospital.command.LoginCommand;
 import ua.mushroom.hospital.command.LogoutCommand;
-import ua.mushroom.hospital.command.admin.AdminCommand;
-import ua.mushroom.hospital.command.admin.AdminRecordCommand;
-import ua.mushroom.hospital.command.admin.UserDetailsCommand;
-import ua.mushroom.hospital.command.admin.UserListCommand;
+import ua.mushroom.hospital.command.admin.*;
+import ua.mushroom.hospital.command.doctor.DoctorAssignmentsCommand;
 import ua.mushroom.hospital.command.doctor.DoctorCommand;
 import ua.mushroom.hospital.command.doctor.DoctorRecordCommand;
+import ua.mushroom.hospital.command.doctor.DoctorRecordsCommand;
+import ua.mushroom.hospital.command.nurse.NurseAssignmentsCommand;
 import ua.mushroom.hospital.command.nurse.NurseCommand;
 import ua.mushroom.hospital.command.nurse.NurseRecordCommand;
+import ua.mushroom.hospital.command.nurse.NurseRecordsCommand;
+import ua.mushroom.hospital.command.patient.PatientAssignmentsCommand;
 import ua.mushroom.hospital.command.patient.PatientCommand;
 import ua.mushroom.hospital.command.patient.PatientRecordCommand;
+import ua.mushroom.hospital.command.patient.PatientRecordsCommand;
 import ua.mushroom.hospital.constants.PathConstants;
 import ua.mushroom.hospital.constants.ViewConstants;
 
@@ -41,8 +44,16 @@ public class GetCommandContainer implements CommandContainer{
         commands.put(PathConstants.ADMIN_RECORD_PAGE, new AdminRecordCommand());
         commands.put(PathConstants.DOCTOR_RECORD_PAGE, new DoctorRecordCommand());
         commands.put(PathConstants.NURSE_RECORD_PAGE, new NurseRecordCommand());
+        commands.put(PathConstants.NURSE_RECORDS_PAGE, new NurseRecordsCommand());
+        commands.put(PathConstants.NURSE_ASSIGNMENTS_PAGE, new NurseAssignmentsCommand());
         commands.put(PathConstants.PATIENT_RECORD_PAGE, new PatientRecordCommand());
+        commands.put(PathConstants.PATIENT_RECORDS_PAGE, new PatientRecordsCommand());
+        commands.put(PathConstants.PATIENT_ASSIGNMENTS_PAGE, new PatientAssignmentsCommand());
         commands.put(PathConstants.USER_DETAILS_PAGE, new UserDetailsCommand());
+        commands.put(PathConstants.RECORD_LIST_PAGE, new RecordListCommand());
+        commands.put(PathConstants.ASSIGNMENT_LIST_PAGE, new AssignmentListCommand());
+        commands.put(PathConstants.DOCTOR_RECORDS_PAGE, new DoctorRecordsCommand());
+        commands.put(PathConstants.DOCTOR_ASSIGNMENTS_PAGE, new DoctorAssignmentsCommand());
     }
 
     @Override

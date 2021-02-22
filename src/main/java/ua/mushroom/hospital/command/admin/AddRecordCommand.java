@@ -24,7 +24,9 @@ public class AddRecordCommand implements Command {
 
         String doctorId = req.getParameter("doctorId");
         String nurseId = req.getParameter("nurseId");
-        String patientId = req.getParameter("userId");
+        String userId = req.getParameter("userId");
+        String role = req.getParameter("role");
+
         Date entryDate = null;
 
         if(!req.getParameter("entryDate").isEmpty()) {
@@ -34,19 +36,19 @@ public class AddRecordCommand implements Command {
         boolean correctValidation = recordValidator.addRecord(doctorId, nurseId, entryDate, req);
 
         if(correctValidation) {
-            record.setPatientId(Integer.parseInt(patientId));
+            record.setPatientId(Integer.parseInt(userId));
             record.setDoctorId(Integer.parseInt(doctorId));
             record.setNurseId(Integer.parseInt(nurseId));
             record.setEntryDate(entryDate);
 
             recordDAO.addRecord(record);
 
-            resp.sendRedirect(PathConstants.USER_DETAILS_PAGE + "?userId=" + patientId);
+            resp.sendRedirect(PathConstants.RECORD_LIST_PAGE+"?role="+role+"&userId="+userId);
             return;
         }
 
-        req.setAttribute("patientId", patientId);
-        req.setAttribute("userId",patientId);
+        req.setAttribute("patientId", userId);
+        req.setAttribute("userId", userId);
         req.getRequestDispatcher(ViewConstants.ADD_RECORD_VIEW).forward(req, resp);
     }
 }

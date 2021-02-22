@@ -87,6 +87,8 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-preview">
+            <h2 class="text-center"><fmt:message key="nursePage"/></h2>
+            <hr>
             <p><strong><fmt:message key="userId"/> </strong>${user.getId()}</p>
             <p><strong><fmt:message key="name"/> </strong>${user.getName()} ${user.getSurname()}</p>
             <p><strong><fmt:message key="dateOfBirth"/> </strong>${user.getBirthday()}</p>
@@ -94,22 +96,10 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
         </div>
         <hr>
         <div class="post-preview">
-            <button data-toggle="collapse" data-target="#records" class="btn-secondary btn-link"><h2><fmt:message key="records"/></h2></button>
-            <div id="records" class="collapse">
-                <c:if test="${records.size()==0}">
-                    <h3><fmt:message key="noRecords"/></h3>
-                </c:if>
-                <c:forEach items="${records}" var="record">
-                    <p><strong><fmt:message key="date"/> </strong>${record.getEntryDate()}</p>
-                    <p><strong><fmt:message key="diagnosis"/> </strong>${record.getInitialDiagnosis()}</p>
-                    <form action="/nurseRecord">
-                        <input type="hidden" name="recordId" value="${record.getId()}">
-                        <button type="submit" class="btn-secondary btn-danger">
-                            <fmt:message key="details"/></button>
-                    </form>
-                    <hr>
-                </c:forEach>
-            </div>
+            <form action="/nurseRecords">
+                <button class="btn-secondary btn-link">
+                    <h2><fmt:message key="records"/></h2></button>
+            </form>
         </div>
     </div>
 </div>

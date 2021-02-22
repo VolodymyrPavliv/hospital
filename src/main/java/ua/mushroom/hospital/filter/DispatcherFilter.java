@@ -26,12 +26,20 @@ public class DispatcherFilter implements Filter {
         PROTECTED_URIS.put(PathConstants.USER_DETAILS_PAGE,"ADMIN");
         PROTECTED_URIS.put(PathConstants.ADMIN_RECORD_PAGE,"ADMIN");
         PROTECTED_URIS.put(PathConstants.USER_LIST_PAGE,"ADMIN");
+        PROTECTED_URIS.put(PathConstants.RECORD_LIST_PAGE,"ADMIN");
+        PROTECTED_URIS.put(PathConstants.ASSIGNMENT_LIST_PAGE,"ADMIN");
         PROTECTED_URIS.put(PathConstants.DOCTOR_PAGE,"DOCTOR");
+        PROTECTED_URIS.put(PathConstants.DOCTOR_RECORDS_PAGE,"DOCTOR");
         PROTECTED_URIS.put(PathConstants.DOCTOR_RECORD_PAGE,"DOCTOR");
+        PROTECTED_URIS.put(PathConstants.DOCTOR_ASSIGNMENTS_PAGE,"DOCTOR");
         PROTECTED_URIS.put(PathConstants.NURSE_PAGE,"NURSE");
         PROTECTED_URIS.put(PathConstants.NURSE_RECORD_PAGE,"NURSE");
+        PROTECTED_URIS.put(PathConstants.NURSE_RECORDS_PAGE,"NURSE");
+        PROTECTED_URIS.put(PathConstants.NURSE_ASSIGNMENTS_PAGE,"NURSE");
         PROTECTED_URIS.put(PathConstants.PATIENT_PAGE,"PATIENT");
         PROTECTED_URIS.put(PathConstants.PATIENT_RECORD_PAGE,"PATIENT");
+        PROTECTED_URIS.put(PathConstants.PATIENT_RECORDS_PAGE,"PATIENT");
+        PROTECTED_URIS.put(PathConstants.PATIENT_ASSIGNMENTS_PAGE,"PATIENT");
     }
 
     @Override

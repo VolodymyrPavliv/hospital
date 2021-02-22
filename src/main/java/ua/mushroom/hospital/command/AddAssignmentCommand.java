@@ -31,11 +31,11 @@ public class AddAssignmentCommand implements Command{
         assignmentDAO.addAssignment(assignment);
 
         if(roleName.equals("DOCTOR")) {
-            resp.sendRedirect(PathConstants.DOCTOR_RECORD_PAGE + "?recordId=" + recordId);
+            resp.sendRedirect(PathConstants.DOCTOR_ASSIGNMENTS_PAGE + "?recordId=" + recordId);
         }
 
         if(roleName.equals("NURSE")) {
-            resp.sendRedirect(PathConstants.NURSE_RECORD_PAGE + "?recordId=" + recordId);
+            resp.sendRedirect(PathConstants.NURSE_ASSIGNMENTS_PAGE + "?recordId=" + recordId);
         }
     }
 }

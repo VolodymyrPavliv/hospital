@@ -78,56 +78,28 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-preview">
-            <c:if test="${doctorId != null}">
+            <h2 class="text-center"><fmt:message key="userDetailsPage"/></h2>
+            <hr>
+            <c:if test="${role.equals('DOCTOR')}">
                 <p><strong><fmt:message key="doctorId"/> </strong>${doctorInfoId}</p>
             </c:if>
             <p><strong><fmt:message key="userId"/> </strong>${user.getId()}</p>
             <p><strong><fmt:message key="name"/> </strong>${user.getName()} ${user.getSurname()}</p>
-            <c:if test="${doctorId != null}">
+            <c:if test="${role.equals('DOCTOR')}">
                 <p><strong><fmt:message key="category"/>: </strong>${category}</p>
             </c:if>
             <p><strong><fmt:message key="dateOfBirth"/> </strong>${user.getBirthday()}</p>
             <p><strong><fmt:message key="email"/> </strong>${user.getEmail()}</p>
         </div>
 
-        <c:if test="${patientId!=null}">
-            <hr>
-            <div class="post-preview">
-                <button data-toggle="collapse" data-target="#addRecord" class="btn-secondary btn-link"><h2><fmt:message key="addRecord"/></h2></button>
-
-                <div id="addRecord" class="collapse">
-                    <form action="/addRecord" method="post">
-                        <input type="hidden" name="userId" value="${patientId}"/>
-                        <label for="doctorId"> <fmt:message key="enterDoctorId"/>   </label>
-                        <input type="text" id="doctorId" class="input-sm" name="doctorId"/><br><br>
-                        <label for="nurseId" > <fmt:message key="enterNurseId"/>       </label>
-                        <input type="text" id="nurseId" name="nurseId" class="input-sm"/><br><br>
-                        <label for="entryDateId"> <fmt:message key="enterEntryDate"/> </label>
-                        <input type="date" name="entryDate" id="entryDateId"/><br><br>
-                        <button type="submit" class="btn-secondary btn-danger">
-                            <fmt:message key="add"/></button>
-                    </form>
-                </div>
-            </div>
-        </c:if>
         <hr>
         <div class="post-preview">
-            <button data-toggle="collapse" data-target="#records" class="btn-secondary btn-link"><h2><fmt:message key="records"/></h2></button>
-            <div id="records" class="collapse">
-                <c:if test="${records.size()==0}">
-                    <h3><fmt:message key="noRecords"/></h3>
-                </c:if>
-                <c:forEach items="${records}" var="record">
-                    <p><strong><fmt:message key="entryDate"/> </strong>${record.getEntryDate()}</p>
-                    <p><strong><fmt:message key="diagnosis"/> </strong>${record.getInitialDiagnosis()}</p>
-                    <form action="/adminRecord" method="get">
-                        <input type="hidden" name="recordId" value="${record.getId()}">
-                        <button type="submit" class="btn-secondary btn-danger">
-                            <fmt:message key="details"/></button>
-                    </form>
-                    <hr>
-                </c:forEach>
-            </div>
+            <form action="/recordList">
+                <input type="hidden" name="role" value="${role}">
+                <input type="hidden" name="userId" value="${userId}">
+                <button class="btn-secondary btn-link">
+                    <h2><fmt:message key="records"/></h2></button>
+            </form>
         </div>
     </div>
 </div>

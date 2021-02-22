@@ -20,17 +20,11 @@ public class PatientCommand implements Command {
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         UserDAOImpl userDAO = new UserDAOImpl();
-        RecordDAOImpl recordDAO = new RecordDAOImpl();
-
-        List<Record> records = new ArrayList<>();
 
         int userId = Integer.parseInt(session.getAttribute("userId").toString());
         User user = userDAO.findById(userId).get();
-        records = recordDAO.findByPatientId(user.getId());
 
         req.setAttribute("user", user);
-        req.setAttribute("records", records);
-
         req.getRequestDispatcher(ViewConstants.PATIENT_PAGE).forward(req, resp);
     }
 }

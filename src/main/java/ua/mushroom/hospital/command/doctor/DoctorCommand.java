@@ -19,15 +19,14 @@ public class DoctorCommand implements Command {
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         UserDAOImpl userDAO = new UserDAOImpl();
-        RecordDAOImpl recordDAO = new RecordDAOImpl();
         DoctorInfoDAOImpl doctorInfoDAO = new DoctorInfoDAOImpl();
 
         int userId = Integer.parseInt(session.getAttribute("userId").toString());
+
         User user = userDAO.findById(userId).get();
         DoctorInfo doctorInfo = doctorInfoDAO.findByUserId(user.getId()).get();
 
         req.setAttribute("user", user);
-        req.setAttribute("records", recordDAO.findByDoctorId(doctorInfo.getId()));
         req.setAttribute("doctorInfoId", doctorInfo.getId());
         req.setAttribute("category", doctorInfo.getCategory());
 
