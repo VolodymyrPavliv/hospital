@@ -19,7 +19,6 @@ public class PathConstants {
     public static final String LOGOUT = "/logout";
     public static final String REGISTER = "/register";
 
-    public static final String ADD_ASSIGNMENT = "/addAssignment";
     public static final String REGISTER_USER = "/registerUser";
     public static final String ADD_RECORD = "/addRecord";
     public static final String USER_LIST_PAGE = "/userList";
@@ -33,4 +32,6 @@ public class PathConstants {
     public static final String PATIENT_ASSIGNMENTS_PAGE = "/patientAssignments";
     public static final String ADD_INIT_DIAGNOSIS = "/addInitDiagnosis";
     public static final String ADD_FINAL_DIAGNOSIS = "/addFinalDiagnosis";
+    public static final String DOCTOR_ASSIGNMENT = "/doctorAssignment";
+    public static final String NURSE_ASSIGNMENT = "/nurseAssignment";
 }

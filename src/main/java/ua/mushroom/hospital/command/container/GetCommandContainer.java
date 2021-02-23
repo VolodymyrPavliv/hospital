@@ -36,6 +36,8 @@ public class GetCommandContainer implements CommandContainer{
         commands.put(PathConstants.ADD_RECORD, (req, resp) -> forward(req, resp, ViewConstants.ADD_RECORD_VIEW));
         commands.put(PathConstants.ADD_INIT_DIAGNOSIS, (req, resp) -> forward(req, resp, ViewConstants.ADD_INIT_DIAGNOSIS));
         commands.put(PathConstants.ADD_FINAL_DIAGNOSIS, (req, resp) -> forward(req, resp, ViewConstants.ADD_FINAL_DIAGNOSIS));
+        commands.put(PathConstants.NURSE_ASSIGNMENT, (req, resp) -> forward(req, resp, ViewConstants.ADD_ASSIGNMENT));
+        commands.put(PathConstants.DOCTOR_ASSIGNMENT, (req, resp) -> forward(req, resp, ViewConstants.ADD_ASSIGNMENT));
         commands.put(PathConstants.HOME_PAGE, new HomeCommand());
         commands.put(PathConstants.ADMIN_PAGE, new AdminCommand());
         commands.put(PathConstants.USER_LIST_PAGE, new UserListCommand());

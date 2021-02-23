@@ -99,12 +99,12 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
         <div class="post-preview">
             <form action="/addFinalDiagnosis" method="post">
                 <c:if test="${emptyFinalDiagnosis}">
-                    <p class="text-danger"><fmt:message key="emptyInitialDiagnosis" /></p>
+                    <p class="text-danger"><fmt:message key="emptyFinalDiagnosis" /></p>
                 </c:if>
                 <label for="discharge"><fmt:message key="dischargeDate"/></label>
                 <input type="date" name="dischargeDate" id="discharge"><br>
                 <input type="hidden" name="id" value="${id}">
-                <lable for = "initDiagnosis"><strong><fmt:message key="initialDiagnosis"/></strong></lable>
+                <lable for = "initDiagnosis"><strong><fmt:message key="finalDiagnosis"/></strong></lable>
                 <textarea name="finalDiagnosis"></textarea><br><br>
                 <button type="submit" class="btn-secondary btn-danger">
                     <fmt:message key="add"/></button>

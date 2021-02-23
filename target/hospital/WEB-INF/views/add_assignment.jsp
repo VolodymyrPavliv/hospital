@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><fmt:message key="assignmentList"/></title>
+    <title><fmt:message key="addAssignment"/></title>
     <!-- Bootstrap Core CSS -->
     <link href="resources/bootstrap.min.css" rel="stylesheet">
 
@@ -84,7 +84,7 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                 <div class="site-heading">
                     <h1><fmt:message key="hospital"/></h1>
                     <hr class="small">
-                    <span class="subheading"><fmt:message key="assignmentList"/></span>
+                    <span class="subheading"><fmt:message key="addAssignment"/></span>
                 </div>
             </div>
         </div>
@@ -94,14 +94,14 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <!-- Main Content -->
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <h2 class="text-center"><fmt:message key="assignmentList"/></h2>
+        <h2 class="text-center"><fmt:message key="addAssignment"/></h2>
         <hr>
         <c:if test="${isDoctor!=null}">
             <div class="post-preview">
-                <button data-toggle="collapse" data-target="#doctorAssignment" class="btn-secondary btn-link">
-                    <h3><fmt:message key="addAssignment"/></h3></button>
-                <div id="doctorAssignment" class="collapse">
-                    <form action="/doctorAssignment" method="post">
+                <form action="/doctorAssignment" method="post">
+                        <c:if test="${emptyCredentials}">
+                            <p class="text-danger"><fmt:message key="emptyCredentials" /></p>
+                        </c:if>
                         <label for="choosingAssignment"><fmt:message key="chooseAssignment"/>:</label>
                         <select name="type" id="choosingAssignment">
                             <option value="Procedure"><fmt:message key="procedure"/></option>
@@ -116,18 +116,17 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                         <button type="submit" class="btn-secondary btn-danger">
                             <fmt:message key="add"/></button>
                     </form>
-                </div>
-                <hr>
             </div>
         </c:if>
         <c:if test="${isNurse!=null}">
             <div class="post-preview">
-                <button data-toggle="collapse" data-target="#nurseAssignment" class="btn-secondary btn-link">
-                    <h3><fmt:message key="addAssignment"/></h3></button>
-                <div id="nurseAssignment" class="collapse">
-                    <form action="/nurseAssignment" method="post">
-                        <label for="choosingAssignment2"><fmt:message key="chooseAssignment"/>:</label>
-                        <select name="type" id="choosingAssignment2">
+                    <c:if test="${emptyCredentials}">
+                        <p class="text-danger"><fmt:message key="emptyCredentials" /></p>
+                    </c:if>
+
+                <form action="/nurseAssignment" method="post">
+                    <label for="choosingAssignment2"><fmt:message key="chooseAssignment"/>:</label>
+                    <select name="type" id="choosingAssignment2">
                             <option value="Procedure"><fmt:message key="procedure"/></option>
                             <option value="Medicine"><fmt:message key="medicine"/></option>
                         </select><br>
@@ -139,25 +138,8 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                         <button type="submit" class="btn-secondary btn-danger">
                             <fmt:message key="add"/></button>
                     </form>
-                </div>
-                <hr>
             </div>
         </c:if>
-        <div class="post-preview">
-              <c:if test="${assignments.size() == 0}">
-                    <h3><fmt:message key="noAssignments"/></h3>
-                </c:if>
-                <c:forEach items="${assignments}" var="assignment">
-                    <p><strong>ID: </strong> ${assignment.getId()}</p>
-                    <p><strong><fmt:message key="type"/> </strong> ${assignment.getType()}</p>
-                    <p class="text-xl-center"><strong><fmt:message key="description"/></strong></p>
-                    <p>${assignment.getDescription()}</p>
-                    <p><strong><fmt:message key="date"/></strong> ${assignment.getDate()}</p>
-                    <p><strong><fmt:message key="author"/> </strong> ${assignment.getUser().getName()}
-                            ${assignment.getUser().getSurname()}</p>
-                    <hr>
-                </c:forEach>
-        </div>
     </div>
 </div>
 
@@ -185,3 +167,4 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
 <script src="resources/js/clean-blog.min.js"></script>
 </body>
 </html>
+

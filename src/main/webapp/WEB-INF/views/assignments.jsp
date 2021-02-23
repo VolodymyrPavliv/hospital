@@ -101,9 +101,9 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                 <button data-toggle="collapse" data-target="#doctorAssignment" class="btn-secondary btn-link">
                     <h3><fmt:message key="addAssignment"/></h3></button>
                 <div id="doctorAssignment" class="collapse">
-                    <form action="/addAssignment" method="post">
-                        <select name="type">
-                            <option disabled selected><fmt:message key="chooseAssignment"/></option>
+                    <form action="/doctorAssignment" method="post">
+                        <label for="choosingAssignment"><fmt:message key="chooseAssignment"/>:</label>
+                        <select name="type" id="choosingAssignment">
                             <option value="Procedure"><fmt:message key="procedure"/></option>
                             <option value="Medicine"><fmt:message key="medicine"/></option>
                             <option value="Operation"><fmt:message key="operation"/></option>
@@ -125,9 +125,9 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                 <button data-toggle="collapse" data-target="#nurseAssignment" class="btn-secondary btn-link">
                     <h3><fmt:message key="addAssignment"/></h3></button>
                 <div id="nurseAssignment" class="collapse">
-                    <form action="/addAssignment" method="post">
-                        <select name="type">
-                            <option disabled selected><fmt:message key="chooseAssignment"/></option>
+                    <form action="/nurseAssignment" method="post">
+                        <label for="choosingAssignment2"><fmt:message key="chooseAssignment"/>:</label>
+                        <select name="type" id="choosingAssignment2">
                             <option value="Procedure"><fmt:message key="procedure"/></option>
                             <option value="Medicine"><fmt:message key="medicine"/></option>
                         </select><br>
@@ -140,6 +140,7 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                             <fmt:message key="add"/></button>
                     </form>
                 </div>
+                <hr>
             </div>
         </c:if>
         <div class="post-preview">
