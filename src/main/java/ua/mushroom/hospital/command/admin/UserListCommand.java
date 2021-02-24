@@ -26,22 +26,58 @@ public class UserListCommand implements Command {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getParameter("listType").equals("doctorList")) {
-            req.setAttribute("doctors", getUsers(req, "DOCTOR"));
+            req.setAttribute("doctors", pagination(req, "DOCTOR"));
             req.getRequestDispatcher(ViewConstants.DOCTORS_VIEW).forward(req, resp);
         }
 
         if (req.getParameter("listType").equals("patientList")) {
-            req.setAttribute("patients", getUsers(req, "PATIENT"));
+            req.setAttribute("patients", pagination(req, "PATIENT"));
             req.getRequestDispatcher(ViewConstants.PATIENTS_VIEW).forward(req, resp);
         }
 
         if (req.getParameter("listType").equals("nurseList")) {
-            req.setAttribute("nurses", getUsers(req,"NURSE"));
+            req.setAttribute("nurses", pagination(req,"NURSE"));
             req.getRequestDispatcher(ViewConstants.NURSES_VIEW).forward(req, resp);
         }
     }
 
-    private List<User> getUsers(HttpServletRequest req, String roleName) {
+    private List<User> pagination(HttpServletRequest req, String roleName) {
+        List<User> users  = getUsers(req, roleName);
+
+        int currentPage = 1;
+
+        if(req.getParameter("currentPage")!=null) {
+            currentPage = Integer.parseInt(req.getParameter("currentPage"));
+        }
+
+        int recordsOnPage = 5;
+        int pages = users.size()/recordsOnPage;
+        int restOfRecords = users.size()%recordsOnPage;
+
+        int firstIndex = (currentPage-1)*recordsOnPage;
+        int lastIndex = 0;
+
+        if (restOfRecords == 0) {
+            lastIndex = firstIndex + recordsOnPage;
+        }
+
+        if(restOfRecords != 0 && currentPage != pages+1) {
+            lastIndex = firstIndex + recordsOnPage;
+        }
+
+        if(restOfRecords != 0 && currentPage == pages+1) {
+            lastIndex = firstIndex + restOfRecords;
+        }
+
+        users = users.subList(firstIndex, lastIndex);
+
+        req.setAttribute("currentPage", currentPage);
+        req.setAttribute("pages", restOfRecords == 0?pages:pages+1);
+        return users;
+    }
+
+
+    private static List<User> getUsers(HttpServletRequest req, String roleName) {
         UserDAOImpl userDAO = new UserDAOImpl();
         RoleDAOImpl roleDAO = new RoleDAOImpl();
 
@@ -54,6 +90,7 @@ public class UserListCommand implements Command {
         List<User> users = userDAO.findAllByRoleId(roleDAO.findByName(roleName)
                 .getId());
 
+        req.setAttribute("sortingType", type);
         return type==0?users:users.stream().sorted(sorting.get(type)).collect(Collectors.toList());
     }
 }

@@ -24,6 +24,27 @@
 
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+    <style>
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+        }
+
+        .pagination a:active {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+        }
+
+        .pagination a:hover:not(.active) {background-color: #de2424;}
+    </style>
 </head>
 
 <body style="background-color: #6df1f6">
@@ -98,6 +119,30 @@ background-color: #6df1f6; background-image: url('../../resources/img/home-page.
                             <strong><fmt:message key="userN"/>${user.id}:</strong> ${user.getName()} ${user.getSurname()}</button>
                     </form>
                 </c:forEach>
+
+            <div class="pagination">
+            <c:if test="${currentPage != 1}">
+                <a href="/userList?listType=patientList&currentPage=${currentPage - 1}&sortingType=${sortingType}">
+                    <<</a>
+            </c:if>
+
+                <c:if test="${pages != 1}">
+                    <c:forEach begin="1" end="${pages}" var="i">
+                        <c:choose>
+                            <c:when test="${currentPage eq i}">
+                                <a href="#" style="background-color: #1b6d85">${i}</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="/userList?listType=patientList&currentPage=${i}&sortingType=${sortingType}">${i}</a>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </c:if>
+
+            <c:if test="${currentPage != pages}">
+                <a href="/userList?listType=patientList&currentPage=${currentPage + 1}&sortingType=${sortingType}">>></a>
+            </c:if>
+            </div>
             </div>
         </div>
     </div>
