@@ -4,7 +4,11 @@ import ua.mushroom.hospital.db.entity.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/**
+ * Utils holder.
+ *
+ * @author Volodymyr
+ */
 public class DBUtils {
     public static void close(AutoCloseable ac) {
         if (ac != null) {

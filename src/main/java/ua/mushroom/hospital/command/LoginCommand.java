@@ -15,6 +15,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Login command.
+ *
+ * @author Volodymyr
+ */
 public class LoginCommand implements Command{
     private final UserDAOImpl userDAO = new UserDAOImpl();
     private final RoleDAOImpl roleDAO = new RoleDAOImpl();

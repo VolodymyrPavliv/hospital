@@ -2,7 +2,6 @@ package ua.mushroom.hospital.command.nurse;
 
 import ua.mushroom.hospital.command.Command;
 import ua.mushroom.hospital.constants.ViewConstants;
-import ua.mushroom.hospital.db.dao.impl.RecordDAOImpl;
 import ua.mushroom.hospital.db.dao.impl.UserDAOImpl;
 import ua.mushroom.hospital.db.entity.User;
 
@@ -12,6 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Nurse page command.
+ *
+ * @author Volodymyr
+ */
 public class NurseCommand implements Command {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

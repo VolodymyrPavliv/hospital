@@ -13,6 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Dispatcher filter.
+ *
+ * @author Volodymyr
+ */
 public class DispatcherFilter implements Filter {
     private static final Map<String, String> PROTECTED_URIS = new HashMap<>();
 

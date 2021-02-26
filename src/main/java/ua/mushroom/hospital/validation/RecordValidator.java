@@ -3,6 +3,12 @@ package ua.mushroom.hospital.validation;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 
+/**
+ * The validator for Record entity
+ *
+ * @author Volodymyr Pavliv
+ *
+ */
 public class RecordValidator {
     private static final String ID_REGEX = "^[0-9]+$";
 

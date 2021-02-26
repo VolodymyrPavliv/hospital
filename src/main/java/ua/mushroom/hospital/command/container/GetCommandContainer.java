@@ -27,6 +27,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The implementation of the CommandContainer for GET request
+ *
+ * @author Volodymyr Pavliv
+ */
 public class GetCommandContainer implements CommandContainer{
     private final Map<String, Command> commands = new HashMap<>();
 

@@ -16,6 +16,11 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 
+/**
+ * Doctor's assignment command.
+ *
+ * @author Volodymyr
+ */
 public class DoctorAssignmentCommand implements Command {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -2,7 +2,6 @@ package ua.mushroom.hospital.command.admin;
 
 import ua.mushroom.hospital.command.Command;
 import ua.mushroom.hospital.constants.PathConstants;
-import ua.mushroom.hospital.constants.ViewConstants;
 import ua.mushroom.hospital.db.dao.impl.DoctorInfoDAOImpl;
 import ua.mushroom.hospital.db.dao.impl.RoleDAOImpl;
 import ua.mushroom.hospital.db.dao.impl.UserDAOImpl;
@@ -12,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Register user command.
+ *
+ * @author Volodymyr
+ */
 public class UserRegisterCommand implements Command {
 
     @Override

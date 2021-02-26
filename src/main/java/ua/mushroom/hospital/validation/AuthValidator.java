@@ -5,6 +5,11 @@ import ua.mushroom.hospital.db.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * The validator for logging and registration
+ *
+ * @author Volodymyr Pavliv
+ */
 public class AuthValidator {
     UserDAOImpl userDAO = new UserDAOImpl();
     private static final String PASSWORD_REGEX = "^.{4,8}$";

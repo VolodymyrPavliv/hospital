@@ -14,6 +14,11 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * User list command.
+ *
+ * @author Volodymyr
+ */
 public class UserListCommand implements Command {
     static Map<Integer, Comparator<User>> sorting = new HashMap<>();
 

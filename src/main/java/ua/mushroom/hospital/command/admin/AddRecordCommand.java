@@ -5,7 +5,6 @@ import ua.mushroom.hospital.constants.PathConstants;
 import ua.mushroom.hospital.constants.ViewConstants;
 import ua.mushroom.hospital.db.dao.impl.RecordDAOImpl;
 import ua.mushroom.hospital.db.entity.Record;
-import ua.mushroom.hospital.validation.AuthValidator;
 import ua.mushroom.hospital.validation.RecordValidator;
 
 import javax.servlet.ServletException;
@@ -14,6 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 
+/**
+ * Add record command.
+ *
+ * @author Volodymyr
+ */
 public class AddRecordCommand implements Command {
     private final RecordValidator recordValidator = new RecordValidator();
 

@@ -12,6 +12,11 @@ import ua.mushroom.hospital.constants.PathConstants;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The implementation of the CommandContainer for POST request
+ *
+ * @author Volodymyr Pavliv
+ */
 public class PostCommandContainer implements CommandContainer {
     private final Map<String, Command> commands = new HashMap<>();
 

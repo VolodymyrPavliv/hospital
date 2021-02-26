@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 
+/**
+ * Register command.
+ *
+ * @author Volodymyr
+ */
 public class RegisterCommand implements Command{
     private final UserDAOImpl userDAO = new UserDAOImpl();
     private final AuthValidator authValidator = new AuthValidator();
