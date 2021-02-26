@@ -1,5 +1,12 @@
 package ua.mushroom.hospital.db.entity;
 
+/**
+ * DoctorInfo entity.
+ *
+ * @author Volodymyr Pavliv
+ *
+ */
+
 public class DoctorInfo {
     private int id;
     private String category;

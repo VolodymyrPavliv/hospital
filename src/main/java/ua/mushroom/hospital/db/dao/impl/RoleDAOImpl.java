@@ -11,6 +11,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * The implementation of the RoleDAO interface.
+ *
+ * @author Volodymyr Pavliv
+ */
 public class RoleDAOImpl implements RoleDAO {
     @Override
     public Role findById(int id) {

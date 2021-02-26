@@ -1,5 +1,12 @@
 package ua.mushroom.hospital.db.entity;
 
+/**
+ * Role entity.
+ *
+ * @author Volodymyr Pavliv
+ *
+ */
+
 public class Role {
     private int id;
     private String name;

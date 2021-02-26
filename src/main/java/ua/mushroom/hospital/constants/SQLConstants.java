@@ -1,5 +1,10 @@
 package ua.mushroom.hospital.constants;
-
+/**
+ * Constants holder (SQL)
+ *
+ * @author Volodymyr Pavliv
+ *
+ */
 public class SQLConstants {
     //For UserDAO
     public final static String FIND_ALL_USERS = "SELECT * FROM user";

@@ -4,6 +4,13 @@ import ua.mushroom.hospital.db.dao.impl.DoctorInfoDAOImpl;
 
 import java.sql.Date;
 
+/**
+ * User entity.
+ *
+ * @author Volodymyr Pavliv
+ *
+ */
+
 public class User {
     private int id;
     private String name;
@@ -12,7 +19,6 @@ public class User {
     private String password;
     private Date birthday;
     private int role_id;
-    private String category;
 
     public User() {}
 
@@ -72,8 +78,14 @@ public class User {
         this.birthday = birthday;
     }
 
+    /**
+     * Gets the DoctorInfo object by userId from the DB
+     *
+     * @return DoctorInfo object
+     *
+     */
     public DoctorInfo getDoctorInfo() {
-        return new DoctorInfoDAOImpl().findByUserId(id).orElse(null);
+        return new DoctorInfoDAOImpl().findByUserId(id).orElse(new DoctorInfo());
     }
 
     @Override

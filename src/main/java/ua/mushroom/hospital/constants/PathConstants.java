@@ -1,5 +1,11 @@
 package ua.mushroom.hospital.constants;
 
+/**
+ * Constants holder (paths)
+ *
+ * @author Volodymyr Pavliv
+ *
+ */
 public class PathConstants {
     public static final String HOME_PAGE = "/";
     public static final String PATIENT_PAGE = "/patient";

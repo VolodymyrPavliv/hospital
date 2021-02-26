@@ -8,7 +8,11 @@ import ua.mushroom.hospital.utils.DBUtils;
 
 import java.sql.*;
 import java.util.Optional;
-
+/**
+ * The implementation of the DoctorInfoDAO interface.
+ *
+ * @author Volodymyr Pavliv
+ */
 public class DoctorInfoDAOImpl implements DoctorInfoDAO {
     @Override
     public Optional<DoctorInfo> findByUserId(int userId) {

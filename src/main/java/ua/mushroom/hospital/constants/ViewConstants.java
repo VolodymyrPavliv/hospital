@@ -1,5 +1,11 @@
 package ua.mushroom.hospital.constants;
 
+/**
+ * Constants holder (jsp pages)
+ *
+ * @author Volodymyr Pavliv
+ *
+ */
 public class ViewConstants {
     public static final String HOME_VIEW = "/WEB-INF/views/home.jsp";
     public static final String REGISTER_VIEW = "/WEB-INF/views/register.jsp";

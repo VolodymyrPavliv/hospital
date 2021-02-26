@@ -5,6 +5,12 @@ import ua.mushroom.hospital.db.entity.User;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * DAO for the User entity.
+ *
+ * @author Volodymyr Pavliv
+ */
+
 public interface UserDAO {
     List<User> findAll();
     Optional<User> findByEmailAndPassword(String email, String password);

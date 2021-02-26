@@ -4,12 +4,18 @@ import ua.mushroom.hospital.db.dao.impl.UserDAOImpl;
 
 import java.sql.Date;
 
+/**
+ * Assignment entity.
+ *
+ * @author Volodymyr Pavliv
+ *
+ */
+
 public class Assignment {
     private int id;
     private String type;
     private String description;
     private int userId;
-    private User user;
     private Date date;
     private int recordId;
 
@@ -62,7 +68,13 @@ public class Assignment {
         this.recordId = recordId;
     }
 
+    /**
+     * Gets the User object by userId from the DB
+     *
+     * @return User object
+     *
+     */
     public User getUser() {
-        return new UserDAOImpl().findById(userId).get();
+        return new UserDAOImpl().findById(userId).orElse(new User());
     }
 }

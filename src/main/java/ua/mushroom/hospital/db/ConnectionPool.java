@@ -6,6 +6,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * Connection pool
+ *
+ * @author Volodymyr Pavliv
+ */
 public class ConnectionPool {
     private static final BasicDataSource ds = new BasicDataSource();
     private static final ResourceBundle rb = ResourceBundle.getBundle("db");

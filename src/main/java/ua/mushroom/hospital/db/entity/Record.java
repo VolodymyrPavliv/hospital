@@ -2,6 +2,13 @@ package ua.mushroom.hospital.db.entity;
 
 import java.sql.Date;
 
+/**
+ * Record entity.
+ *
+ * @author Volodymyr Pavliv
+ *
+ */
+
 public class Record {
     private int id;
     private int patientId;

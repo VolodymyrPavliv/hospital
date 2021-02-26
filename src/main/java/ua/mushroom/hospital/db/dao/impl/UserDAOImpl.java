@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Interacts with the DB
+ * The implementation of the UserDAO interface.
+ *
+ * @author Volodymyr Pavliv
  */
 public class UserDAOImpl implements UserDAO {
     @Override

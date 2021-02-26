@@ -10,7 +10,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * The implementation of the RecordDAO interface.
+ *
+ * @author Volodymyr Pavliv
+ */
 public class RecordDAOImpl implements RecordDAO {
     @Override
     public boolean addRecord(Record record) {

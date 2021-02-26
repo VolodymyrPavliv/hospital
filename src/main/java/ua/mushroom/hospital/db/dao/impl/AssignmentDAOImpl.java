@@ -9,7 +9,11 @@ import ua.mushroom.hospital.utils.DBUtils;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * The implementation of the AssignmentDAO interface.
+ *
+ * @author Volodymyr Pavliv
+ */
 public class AssignmentDAOImpl implements AssignmentDAO {
     @Override
     public List<Assignment> findByRecordId(int recordId) {

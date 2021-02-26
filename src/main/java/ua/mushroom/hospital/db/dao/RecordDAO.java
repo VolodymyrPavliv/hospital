@@ -6,6 +6,11 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * DAO for the Record entity.
+ *
+ * @author Volodymyr Pavliv
+ */
 public interface RecordDAO {
     List<Record> findByPatientId(int patientId);
     Optional<Record> findById(int id);
